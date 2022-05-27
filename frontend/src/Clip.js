@@ -2,15 +2,18 @@ import './Clip.css';
 
 const Clip = ({clip}) => {
 
-    // FIXME: change where it says v56GnmWN to the ID of a youtube video
-    // TODO: Create helper function that splices the link provided in the DB into the video ID
-    //TODO: Add alt in case img doesnt load
-
+    // String automatically created based on clip link
+    const str1 = "https://img.youtube.com/vi/"
+    const str2 = clip.link.slice(clip.link.indexOf("=")+1)
+    const str3 = "/default.jpg"
+    const imgString = str1.concat(str2,str3)
+    console.log(imgString)
+    
     return (
         <div className="clipPanel">
             <p className="epTitle">{clip.title}</p>
 
-            {clip.link.includes("youtube.com") ? <img src="https://img.youtube.com/vi/v56GnmWN_wY/default.jpg" alt="No img available (not on YouTube)"></img> : <p>No img available (not on YouTube)</p>}
+            {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)"></img> : <p>No img available (not on YouTube)</p>}
             
             <a className="epLink" href={clip.link} target="_blank">Link to podcast</a>
             <p className="epDate">Uploaded: {clip.datePublished}</p>
