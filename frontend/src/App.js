@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
 import Clip from './Clip'
+import ClipForm from './ClipForm'
 
 function App() {
 
@@ -56,11 +57,13 @@ function App() {
   console.log("shows: ", shows)
   console.log("people: ", people)
   */
-
+  // TODO: Need to implement filtering here
   return (
     <div className="App">
       <h1>Add a Clip:</h1>
+      <ClipForm />
       <h1>Clips:</h1>
+      <h3>TODO: Add filtering functionality here</h3>
       {clips.map(clip => 
         <Clip key={clip.id} clip={clip} />
       )}
