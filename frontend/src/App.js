@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
+import Clip from './Clip'
 
 function App() {
 
@@ -58,19 +59,10 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Add a Clip:</h1>
       <h1>Clips:</h1>
       {clips.map(clip => 
-        <div key={clip.id}>
-          <p>{clip.title}</p>
-          <a href={clip.link}>Link to video</a>
-          <p>Uploaded: {clip.datePublished}</p>
-          <p>Time: {clip.startTime} - {clip.endTime}</p>
-          <p>{clip.name}</p>
-          <div>Hosts: {clip.hosts.map((host, i) => <p key={i}>{host}</p>)}</div>
-          <div>Guests: {clip.guests.map((guest, i) => <p key={i}>{guest}</p>)}</div>
-          
-          <p>{clip.notes}</p>
-        </div>
+        <Clip key={clip.id} clip={clip} />
       )}
     </div>
   );
