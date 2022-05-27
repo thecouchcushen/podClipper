@@ -17,16 +17,28 @@ const ClipForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         // TODO: Reset values after submission
+        const clipObject = {
+            "startTime": startTime,
+            "endTime": endTime,
+            "title": title,
+            "datePublished": uploadDate,
+            "link": link,
+            "name": showName,
+            "guests": guests,
+            "hosts": hosts,
+            "notes": notes
+        }
+
         alert(`
-            title: ${title}, \n
-            link: ${link}, \n
-            uploadDate: ${uploadDate}, \n
-            startTime: ${startTime}, \n
-            endTime: ${endTime}, \n
-            showName: ${showName}, \n
-            hosts: ${hosts}, \n
-            guests: ${guests}, \n
-            notes: ${notes}, \n
+            title: ${title} \n
+            link: ${link} \n
+            uploadDate: ${uploadDate} \n
+            startTime: ${startTime} \n
+            endTime: ${endTime} \n
+            showName: ${showName} \n
+            hosts: ${hosts} \n
+            guests: ${guests} \n
+            notes: ${notes} \n
         `)
     }
 
@@ -48,8 +60,9 @@ const ClipForm = (props) => {
             
             <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
             {/*
-            TODO: Need a textarea for the notes
-            TODO: Need to figure out the way to add guests/hosts to the arrays (maybe react-createable component explored for restaurant app) 
+            TODO: Need to figure out the way to add guests/hosts to the arrays (maybe react-createable component explored for restaurant app)
+                setGuests(guests.concat(person))
+                setHosts(hosts.concat(person))
             */}
 
             <button onClick={handleSubmit}>Submit</button>

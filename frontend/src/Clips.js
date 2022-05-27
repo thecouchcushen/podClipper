@@ -21,7 +21,7 @@ const Clips = ({clips}) => {
             <FormInput valDescriptor="noteFilter" beingChanged={noteFilter} changeFunction={setNoteFilter} />
             <FormInput valDescriptor="showFilter" beingChanged={showFilter} changeFunction={setShowFilter} />
 
-            {clipsToShow.map(clip => <Clip key={clip.id} clip={clip} /> )}
+            {clipsToShow.map((clip, i) => <Clip key={"clip"+i} clip={clip} /> )}
         </div>
     )
 }

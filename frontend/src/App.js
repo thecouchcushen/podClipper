@@ -11,6 +11,7 @@ function App() {
   const [clips, setClips] = useState([])
 
   /*
+  TODO: Do I need to separate these models out again?
   const [episodes, setEpisodes] = useState([])
   const [shows, setShows] = useState([])
   const [people, setPeople] = useState([])
