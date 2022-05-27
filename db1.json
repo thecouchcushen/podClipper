@@ -1,0 +1,40 @@
+{
+    "clips": [
+        {
+            "id": 1,
+            "startTime": "1:07:00",
+            "endTime": "1:10:00",
+            "title": "#297 - The Lodge from Hell",
+            "datePublished": "05/07/2022",
+            "link": "https://www.youtube.com/watch?v=7Ax6H7QP32k",
+            "name": "The Tim Dillon Show",
+            "guests": ["Sam Tallent"],
+            "hosts": ["Tim Dillon", "Ben Avery"],
+            "notes": "Tim talks about the reasons for late-term abortions and does a theatrical presentation (and the NUMBER ONE REASON IS...)"
+        },
+        {
+            "id": 2,
+            "startTime": "1:37:00",
+            "endTime": "1:40:00",
+            "title": "#8 Tim Dillon",
+            "datePublished": "02/20/2019",
+            "link": "https://www.youtube.com/watch?v=_cI5GTxKbBU",
+            "name": "The HoneyDew Podcast",
+            "guests": ["Tim Dillon"],
+            "hosts": ["Ryan Sickler"],
+            "notes": "Talking about how Tim was so miserable and wanted an escape so badly he purposefully got on jury duty and that relationships are great but you need to build your life in other areas"
+        },
+        {
+            "id": 3,
+            "startTime": "00:23:00",
+            "endTime": "00:30:00",
+            "title": "#177 - Sober December",
+            "datePublished": "12/08/2019",
+            "link": "https://www.youtube.com/watch?v=v56GnmWN_wY",
+            "name": "The Tim Dillon Show",
+            "guests": [],
+            "hosts": ["Tim Dillon", "Ben Avery"],
+            "notes": "Talks about shitty christmas parties and shouts out sober people at the end of the episode"
+        }
+    ]
+}

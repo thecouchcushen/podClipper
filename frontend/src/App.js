@@ -6,58 +6,72 @@ import {useState, useEffect} from 'react'
 function App() {
 
   const [clips, setClips] = useState([])
+
+  /*
   const [episodes, setEpisodes] = useState([])
   const [shows, setShows] = useState([])
   const [people, setPeople] = useState([])
+  */
 
   useEffect(() => {
 
     const clipsRequest = axios.get("http://localhost:3001/clips")
+
+    /*
     const episodesRequest = axios.get("http://localhost:3001/episodes")
     const showsRequest = axios.get("http://localhost:3001/shows")
     const peopleRequest = axios.get("http://localhost:3001/people")
+    */
+
+    clipsRequest.then(response => {
+      const clipsResponse = response
+      console.log("clips: ", clipsResponse.data)
+      setClips(clipsResponse.data)
+    })
+
+    /*
 
     axios.all([clipsRequest, episodesRequest, showsRequest, peopleRequest]).then((response) => {
       
       const clipsResponse = response[0]
-
       const episodesResponse = response[1]
-
       const showsResponse = response[2]
-
       const peopleResponse = response[3]
 
-      setClips(clipsResponse)
-      setEpisodes(episodesResponse)
-      setShows(showsResponse)
-      setPeople(peopleResponse)
+      setClips(clipsResponse.data)
+      setEpisodes(episodesResponse.data)
+      setShows(showsResponse.data)
+      setPeople(peopleResponse.data)
+    })
 
-    }
-    )
-    
+    */
+  
   }, [])
 
+  /*
+  // Logs all of the initial db values
   console.log("clips: ", clips)
   console.log("episodes: ", episodes)
   console.log("shows: ", shows)
   console.log("people: ", people)
+  */
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Clips:</h1>
+      {clips.map(clip => 
+        <div key={clip.id}>
+          <p>{clip.title}</p>
+          <a href={clip.link}>Link to video</a>
+          <p>Uploaded: {clip.datePublished}</p>
+          <p>Time: {clip.startTime} - {clip.endTime}</p>
+          <p>{clip.name}</p>
+          <div>Hosts: {clip.hosts.map((host, i) => <p key={i}>{host}</p>)}</div>
+          <div>Guests: {clip.guests.map((guest, i) => <p key={i}>{guest}</p>)}</div>
+          
+          <p>{clip.notes}</p>
+        </div>
+      )}
     </div>
   );
 }
