@@ -2,8 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
-import Clip from './Clip'
+
 import ClipForm from './ClipForm'
+import Clips from './Clips'
 
 function App() {
 
@@ -64,9 +65,7 @@ function App() {
       <ClipForm />
       <h1>Clips:</h1>
       <h3>TODO: Add filtering functionality here</h3>
-      {clips.map(clip => 
-        <Clip key={clip.id} clip={clip} />
-      )}
+      <Clips clips={clips} />
     </div>
   );
 }
