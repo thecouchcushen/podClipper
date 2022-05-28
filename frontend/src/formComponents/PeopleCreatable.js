@@ -23,23 +23,22 @@ const PeopleCreatable = (props) => {
     })
 
     //console.log(persons)
-    
-    // Failed attempt at rendering guests/hosts below by making it a json
-    //var realPeopleOptions = {}
-    //realPeopleOptions.people = persons
-    //console.log(realPeopleOptions)
 
     const [selectedOption, setSelectedOption] = useState(null)
     
     const handleChange = (selectedOption) => {
         setSelectedOption( selectedOption )
-        console.log(`${props.valDescriptor} selected:`, selectedOption)
+        //console.log(`${props.valDescriptor} selected:`, selectedOption)
         var names = []
         selectedOption.map(option => names.push(option.value))
         console.log(`${props.valDescriptor} selected:`, names)
         props.changeFunction( names )
     }
+    /* 
+    TODO: Add defaultValue and feed in the array of people if updating/editing an entry already made:
     
+    defaultValue={[{value: "Tim Dillon", label: "Tim Dillon"}, {value: "Ben Avery", label: "Ben Avery"}]}
+    */
     return (
         <div>
             <label>{props.valDescriptor}</label>

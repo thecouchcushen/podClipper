@@ -11,7 +11,7 @@ const PeopleSelect = (props) => {
     var peopleBlank = hostsBlank.concat(guestsBlank)
     var peopleOptions = [...new Set(peopleBlank)]
     
-    console.log("peopleOptions:", peopleOptions)
+    //console.log("peopleOptions:", peopleOptions)
 
     //Maps the list of unique people to an array compatible with the React-select componenet
     var persons = []

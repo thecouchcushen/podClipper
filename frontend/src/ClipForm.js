@@ -18,6 +18,8 @@ const ClipForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         // TODO: Reset values after submission
+        // TODO: Add onSubmit functionality that pushes object to the backend
+
         const clipObject = {
             "startTime": startTime,
             "endTime": endTime,
@@ -42,12 +44,7 @@ const ClipForm = (props) => {
             notes: ${notes} \n
         `)
     }
-    /*
-    TODO: Add onSubmit functionality that adds object to 
-    Need to figure out the way to add guests/hosts to the arrays (maybe react-createable component explored for restaurant app)
-        setGuests(guests.concat(person))
-        setHosts(hosts.concat(person))
-    */
+    
     return (
         <div>
             <h2>New Clip</h2>

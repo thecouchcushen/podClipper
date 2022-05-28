@@ -10,7 +10,7 @@ const ShowSelect = (props) => {
     //console.log("showsBlank:", showsBlank)
     //var showsOptions = [...new Set(showsBlank)]
     
-    console.log("showsOptions:", showsOptions)
+    //console.log("showsOptions:", showsOptions)
 
     //Maps the list of unique shows to an array compatible with the React-select componenet
     var shows = []
@@ -28,7 +28,7 @@ const ShowSelect = (props) => {
     const [selectedOption, setSelectedOption] = useState(null)
     
     const handleChange = (selectedOption) => {
-        //setSelectedOption( selectedOption )
+        setSelectedOption( selectedOption )
         console.log(`Person filter selected: ${selectedOption.value}`)
         props.changeFunction( selectedOption.value )
     }

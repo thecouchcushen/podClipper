@@ -4,7 +4,7 @@ const FormInput = (props) => {
         console.log(props.valDescriptor , event.target.value)
         props.changeFunction(event.target.value)
     }
-    // TODO: Implement form validation
+    
     return (
         <label>{props.valDescriptor}
             <input

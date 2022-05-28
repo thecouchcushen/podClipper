@@ -9,8 +9,12 @@ const Clip = ({clip}) => {
     const imgString = str1.concat(str2,str3)
     // console.log(imgString)
     
+    //TODO: Implement Edit/Delete functionalities
     return (
         <div className="clipPanel">
+            <a href="" target="_blank">Edit</a>
+            <br />
+            <a href="" target="_blank">Delete</a>
             <p className="epTitle">{clip.title}</p>
 
             {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)"></img> : <p>No img available (not on YouTube)</p>}

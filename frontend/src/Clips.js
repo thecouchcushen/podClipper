@@ -19,11 +19,7 @@ const Clips = ({clips}) => {
 
     const clipsToShow = clipsToShowPERSON
 
-    /* 
-    <FormInput valDescriptor="personFilter" beingChanged={personFilter} changeFunction={setPersonFilter} />
-
-    <FormInput valDescriptor="showFilter" beingChanged={showFilter} changeFunction={setShowFilter} />
-    */
+    // TODO: Notes filter form input validation
     return (
         <div>
             <PeopleSelect clips={clips} valDescriptor="peopleFilter" beingChanged={personFilter} changeFunction={setPersonFilter} />
