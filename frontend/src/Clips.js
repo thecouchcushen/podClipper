@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import Clip from './Clip'
 import FormInput from './formComponents/FormInput'
 import PeopleSelect from './filterComponents/PeopleSelect'

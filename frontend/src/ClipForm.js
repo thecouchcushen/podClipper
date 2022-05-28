@@ -33,18 +33,18 @@ const ClipForm = (props) => {
         }
 
         alert(`
-            title: ${title} \n
-            link: ${link} \n
-            uploadDate: ${uploadDate} \n
-            startTime: ${startTime} \n
-            endTime: ${endTime} \n
-            showName: ${showName} \n
-            hosts: ${hosts} \n
-            guests: ${guests} \n
-            notes: ${notes} \n
+            title: ${clipObject.title} \n
+            link: ${clipObject.link} \n
+            uploadDate: ${clipObject.uploadDate} \n
+            startTime: ${clipObject.startTime} \n
+            endTime: ${clipObject.endTime} \n
+            showName: ${clipObject.showName} \n
+            hosts: ${clipObject.hosts} \n
+            guests: ${clipObject.guests} \n
+            notes: ${clipObject.notes} \n
         `)
     }
-    
+
     return (
         <div>
             <h2>New Clip</h2>

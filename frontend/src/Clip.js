@@ -19,7 +19,7 @@ const Clip = ({clip}) => {
 
             {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)"></img> : <p>No img available (not on YouTube)</p>}
             
-            <a className="epLink" href={clip.link} target="_blank">Link to podcast</a>
+            <a className="epLink" href={clip.link} target="_blank" rel="noreferrer">Link to podcast</a>
             <p className="epDate">Uploaded: {clip.datePublished}</p>
             <p className="timestamp">Time: {clip.startTime} - {clip.endTime}</p>
             <p className="showName">{clip.name}</p>
