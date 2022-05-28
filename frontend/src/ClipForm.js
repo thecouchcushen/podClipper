@@ -63,12 +63,11 @@ const ClipForm = (props) => {
             <br />
             <FormInput valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
             <br />
-            
-            <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
 
             <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
             <PeopleCreatable valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={props.clips} />
             
+            <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
 
             <button onClick={handleSubmit}>Submit</button>
         </div>

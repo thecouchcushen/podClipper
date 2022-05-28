@@ -3,7 +3,6 @@ import CreatableSelect from 'react-select/creatable';
 
 const PeopleCreatable = (props) => {
     //Creates list of unique people by combining arrays of hosts and guests
-    var optionsBlank = []
     var hostsBlank = props.clips.map(clip => [...clip.hosts]).flat()
     //console.log("hostsBlank:", hostsBlank)
     var guestsBlank = props.clips.map(clip => [...clip.guests]).flat()
