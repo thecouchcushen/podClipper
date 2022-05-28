@@ -45,6 +45,7 @@ const PeopleCreatable = (props) => {
             <CreatableSelect
                 isMulti
                 options={persons}
+                value={selectedOption}
                 onChange={handleChange} />
         </div>
     )

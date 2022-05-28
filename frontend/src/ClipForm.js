@@ -2,6 +2,7 @@ import {useState} from 'react'
 import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
 import PeopleCreatable from './formComponents/PeopleCreatable'
+import createIcon from './create.svg'
 
 const ClipForm = (props) => {
     // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show
@@ -66,7 +67,11 @@ const ClipForm = (props) => {
             
             <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
 
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit}>
+                <img src={createIcon} alt="Create icon" width="40%"/>
+                <br />
+                Submit
+            </button>
         </div>
     )
 }

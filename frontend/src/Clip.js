@@ -1,4 +1,6 @@
-import './Clip.css';
+import './Clip.css'
+import editIcon from './edit.svg'
+import deleteIcon from './delete.svg'
 
 const Clip = ({clip}) => {
 
@@ -12,13 +14,16 @@ const Clip = ({clip}) => {
     //TODO: Implement Edit/Delete functionalities
     return (
         <div className="clipPanel">
-            <a href="" target="_blank">Edit</a>
-            <br />
-            <a href="" target="_blank">Delete</a>
+            <a href="" target="_blank">
+                <img src={editIcon} alt="Edit" width="8%"></img>
+            </a>
+            <a href="" target="_blank">
+                <img src={deleteIcon} alt="Delete" width="8%"></img>
+            </a>
             <p className="epTitle">{clip.title}</p>
 
-            {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)"></img> : <p>No img available (not on YouTube)</p>}
-            
+            {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
+            <br />
             <a className="epLink" href={clip.link} target="_blank" rel="noreferrer">Link to podcast</a>
             <p className="epDate">Uploaded: {clip.datePublished}</p>
             <p className="timestamp">Time: {clip.startTime} - {clip.endTime}</p>
