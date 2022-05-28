@@ -30,7 +30,7 @@ function App() {
 
     clipsRequest.then(response => {
       const clipsResponse = response
-      console.log("clips: ", clipsResponse.data)
+      //console.log("clips: ", clipsResponse.data)
       setClips(clipsResponse.data)
     })
 

@@ -7,7 +7,7 @@ const Clip = ({clip}) => {
     const str2 = clip.link.slice(clip.link.indexOf("=")+1)
     const str3 = "/default.jpg"
     const imgString = str1.concat(str2,str3)
-    console.log(imgString)
+    // console.log(imgString)
     
     return (
         <div className="clipPanel">

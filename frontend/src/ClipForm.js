@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
-import CreatableInput from './formComponents/CreatableInput'
+import PeopleCreatable from './formComponents/PeopleCreatable'
 
 const ClipForm = (props) => {
     // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show
@@ -61,7 +61,8 @@ const ClipForm = (props) => {
             
             <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
 
-            <CreatableInput clips={props.clips}/>
+            <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
+            <PeopleCreatable valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={props.clips} />
             {/*
             TODO: Need to figure out the way to add guests/hosts to the arrays (maybe react-createable component explored for restaurant app)
                 setGuests(guests.concat(person))
