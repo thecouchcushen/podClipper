@@ -33,8 +33,12 @@ const PeopleCreatable = (props) => {
     const [selectedOption, setSelectedOption] = useState(null)
     
     const handleChange = (selectedOption) => {
-        setSelectedOption({ selectedOption })
+        setSelectedOption( selectedOption )
         console.log(`${props.valDescriptor} selected:`, selectedOption)
+        var names = []
+        selectedOption.map(option => names.push(option.value))
+        console.log(`${props.valDescriptor} selected:`, names)
+        props.changeFunction( names )
     }
     
     return (

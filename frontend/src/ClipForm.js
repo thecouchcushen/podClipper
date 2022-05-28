@@ -42,7 +42,12 @@ const ClipForm = (props) => {
             notes: ${notes} \n
         `)
     }
-
+    /*
+    TODO: Add onSubmit functionality that adds object to 
+    Need to figure out the way to add guests/hosts to the arrays (maybe react-createable component explored for restaurant app)
+        setGuests(guests.concat(person))
+        setHosts(hosts.concat(person))
+    */
     return (
         <div>
             <h2>New Clip</h2>
@@ -63,11 +68,7 @@ const ClipForm = (props) => {
 
             <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
             <PeopleCreatable valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={props.clips} />
-            {/*
-            TODO: Need to figure out the way to add guests/hosts to the arrays (maybe react-createable component explored for restaurant app)
-                setGuests(guests.concat(person))
-                setHosts(hosts.concat(person))
-            */}
+            
 
             <button onClick={handleSubmit}>Submit</button>
         </div>
