@@ -6,7 +6,7 @@ import createIcon from './create.svg'
 import axios from 'axios'
 
 const ClipForm = (props) => {
-    // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show
+    // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show (could use switch statement to keep the form the same for create edit/update)
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
     const [uploadDate, setUploadDate] = useState('')
@@ -16,6 +16,11 @@ const ClipForm = (props) => {
     const [hosts, setHosts] = useState([])
     const [guests, setGuests] = useState([])
     const [notes, setNotes] = useState('')
+
+    // feed prop isEdit={true} into clipform if the form is an edit of an existing clip. If this is a create/POST request, leave as false and let it initialize normally
+    if (props.isEdit === true) {
+        return
+    }
 
     // Deconstruct props
     const setClips = props.setClips
@@ -39,7 +44,7 @@ const ClipForm = (props) => {
             setClips(clips.concat(response.data))
             console.log("response:", response)
         })
-        .then(alert(`
+        .then(alert(`Entry has posted to the server:
             "startTime": ${startTime}, \n
             "endTime": ${endTime}, \n
             "title": ${title}, \n

@@ -2,7 +2,7 @@
 import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
-//import clipService from './services/clips'
+import clipService from './services/clips'
 
 import ClipForm from './ClipForm'
 import Clips from './Clips'
@@ -14,12 +14,8 @@ function App() {
   //Requests the clips upon first load of the website
   useEffect(() => {
     //TODO: Integrate services/clips functions here
-    const clipsRequest = axios.get("http://localhost:3001/clips")
-    clipsRequest.then(response => {
-      const clipsResponse = response
-      //console.log("clips: ", clipsResponse.data)
-      setClips(clipsResponse.data)
-    })  
+    clipService.getAll()
+               .then(response => setClips(response))
   }, [])
 
   return (

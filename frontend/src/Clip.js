@@ -1,6 +1,7 @@
 import './Clip.css'
 import editIcon from './edit.svg'
 import deleteIcon from './delete.svg'
+import axios from 'axios'
 
 const Clip = ({clip}) => {
 
@@ -11,15 +12,20 @@ const Clip = ({clip}) => {
     const imgString = str1.concat(str2,str3)
     // console.log(imgString)
     
+    //TODO: Update to make delete happen in both server and REACT
+    const clipDelete = () => {
+        //axios.delete(`http://localhost:3001/clips/${clip.id - 1 }`)
+        return
+    }
+
     //TODO: Implement Edit/Delete functionalities
     return (
         <div className="clipPanel">
-            <a href="" target="_blank">
+            <a href="#top">
                 <img src={editIcon} alt="Edit" width="8%"></img>
             </a>
-            <a href="" target="_blank">
-                <img src={deleteIcon} alt="Delete" width="8%"></img>
-            </a>
+            
+            <img src={deleteIcon} alt="Delete" width="8%"></img>
             <p className="epTitle">{clip.title}</p>
 
             {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
