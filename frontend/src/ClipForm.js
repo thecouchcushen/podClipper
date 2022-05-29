@@ -3,6 +3,7 @@ import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
 import PeopleCreatable from './formComponents/PeopleCreatable'
 import createIcon from './create.svg'
+import axios from 'axios'
 
 const ClipForm = (props) => {
     // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show
@@ -16,12 +17,14 @@ const ClipForm = (props) => {
     const [guests, setGuests] = useState([])
     const [notes, setNotes] = useState('')
 
+    // Deconstruct props
+    const setClips = props.setClips
+    const clips = props.clips
+
     const handleSubmit = (event) => {
         event.preventDefault()
-        // TODO: Reset values after submission
-        // TODO: Add onSubmit functionality that pushes object to the backend
 
-        const clipObject = {
+        axios.post("http://localhost:3001/clips", {
             "startTime": startTime,
             "endTime": endTime,
             "title": title,
@@ -31,21 +34,37 @@ const ClipForm = (props) => {
             "guests": guests,
             "hosts": hosts,
             "notes": notes
-        }
+        })
+        .then(response => {
+            setClips(clips.concat(response.data))
+            console.log("response:", response)
+        })
+        .then(alert(`
+            "startTime": ${startTime}, \n
+            "endTime": ${endTime}, \n
+            "title": ${title}, \n
+            "datePublished": ${uploadDate}, \n
+            "link": ${link}, \n
+            "name": ${showName}, \n
+            "guests": ${guests}, \n
+            "hosts": ${hosts}, \n
+            "notes": ${notes}
+        `))
+        setTitle('')
+        setLink('')
+        setUploadDate('')
+        setStartTime('')
+        setEndTime('')
+        setShowName('')
+        setHosts([])
+        setGuests([])
+        setNotes('')
 
-        alert(`
-            title: ${clipObject.title} \n
-            link: ${clipObject.link} \n
-            uploadDate: ${clipObject.uploadDate} \n
-            startTime: ${clipObject.startTime} \n
-            endTime: ${clipObject.endTime} \n
-            showName: ${clipObject.showName} \n
-            hosts: ${clipObject.hosts} \n
-            guests: ${clipObject.guests} \n
-            notes: ${clipObject.notes} \n
-        `)
     }
-
+    
+    
+    //Potentially create a different submit button that handles updates/puts? that way I can leave this handleSubmit function (which caused me a lot of trouble) and just create a new one
+    //Actually not sure that I would have to change the above function that much except for the Post vs Put (w/ findById)
     return (
         <div>
             <h2>New Clip</h2>

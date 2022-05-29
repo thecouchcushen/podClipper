@@ -2,7 +2,7 @@
 import './App.css';
 import axios from 'axios';
 import {useState, useEffect} from 'react'
-import noteService from './services/clips'
+//import clipService from './services/clips'
 
 import ClipForm from './ClipForm'
 import Clips from './Clips'
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <h1>Add a Clip:</h1>
-      <ClipForm clips={clips}/>
+      <ClipForm clips={clips} setClips={setClips} />
       <h1>Clips:</h1>
       <h3>TODO: Add filtering functionality here</h3>
       <Clips clips={clips} />
