@@ -1,7 +1,6 @@
 import './Clip.css'
-import editIcon from './edit.svg'
-import deleteIcon from './delete.svg'
-import axios from 'axios'
+import editIcon from '../edit.svg'
+import deleteIcon from '../delete.svg'
 
 const Clip = ({clip}) => {
 
@@ -12,11 +11,14 @@ const Clip = ({clip}) => {
     const imgString = str1.concat(str2,str3)
     // console.log(imgString)
     
-    //TODO: Update to make delete happen in both server and REACT
+    /*
+    TODO: Update to make delete happen in both server and REACT
+    
     const clipDelete = () => {
         //axios.delete(`http://localhost:3001/clips/${clip.id - 1 }`)
         return
     }
+    */
 
     //TODO: Implement Edit/Delete functionalities
     return (

@@ -2,7 +2,7 @@ import {useState} from 'react'
 import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
 import PeopleCreatable from './formComponents/PeopleCreatable'
-import createIcon from './create.svg'
+import createIcon from '../create.svg'
 import axios from 'axios'
 
 const ClipForm = (props) => {

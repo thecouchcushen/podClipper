@@ -1,0 +1,81 @@
+{
+    "clips": [
+        {
+            "id": 1,
+            "startTime": "1:07:00",
+            "endTime": "1:10:00",
+            "episodeId": 1,
+            "notes": "Tim talks about the reasons for late-term abortions and does a theatrical presentation (and the NUMBER ONE REASON IS...)"
+        },
+        {
+            "id": 2,
+            "startTime": "1:37:00",
+            "endTime": "1:40:00",
+            "episodeId": 2,
+            "notes": "Talking about how Tim was so miserable and wanted an escape so badly he purposefully got on jury duty and that relationships are great but you need to build your life in other areas"
+        },
+        {
+            "id": 3,
+            "startTime": "00:23:00",
+            "endTime": "00:30:00",
+            "episodeId": 3,
+            "notes": "Talks about shitty christmas parties and shouts out sober people at the end of the episode"
+        }
+    ],
+    "episodes": [
+        {
+            "id": 1,
+            "title": "#297 - The Lodge from Hell",
+            "datePublished": "05/07/2022",
+            "link": "https://www.youtube.com/watch?v=7Ax6H7QP32k",
+            "guestIds": [3],
+            "showId": 1
+        },
+        {
+            "id": 2,
+            "title": "#8 Tim Dillon",
+            "datePublished": "02/20/2019",
+            "link": "https://www.youtube.com/watch?v=_cI5GTxKbBU",
+            "guestIds": [1],
+            "showId": 2
+        },
+        {
+            "id": 3,
+            "title": "#177 - Sober December",
+            "datePublished": "12/08/2019",
+            "link": "https://www.youtube.com/watch?v=v56GnmWN_wY",
+            "guestIds": [],
+            "showId": 1
+        }
+    ],
+    "shows": [
+        {
+            "id": 1,
+            "name": "The Tim Dillon Show",
+            "hosts": [1, 2]
+        },
+        {
+            "id": 2,
+            "name": "The HoneyDew Podcast",
+            "hosts": [4]
+        }
+    ],
+    "people": [
+        {
+            "id": 1,
+            "fullName": "Tim Dillon"
+        },
+        {
+            "id": 2,
+            "fullName": "Ben Avery"
+        },
+        {
+            "id": 3,
+            "fullName": "Sam Tallent"
+        },
+        {
+            "id": 4,
+            "fullName": "Ryan Sickler"
+        }
+    ]
+}

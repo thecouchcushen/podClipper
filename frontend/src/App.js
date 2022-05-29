@@ -1,11 +1,10 @@
 //import logo from './logo.svg';
 import './App.css';
-import axios from 'axios';
 import {useState, useEffect} from 'react'
 import clipService from './services/clips'
 
-import ClipForm from './ClipForm'
-import Clips from './Clips'
+import ClipForm from './components/ClipForm'
+import Clips from './components/Clips'
 
 function App() {
 
