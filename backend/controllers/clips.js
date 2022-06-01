@@ -34,7 +34,7 @@ clipsRouter.post('/', (request, response, next) => {
     notes: body.notes || "",
   })
 
-  Clip.save()
+  clip.save()
     .then(savedClip => {
       response.json(savedClip)
     })
@@ -50,25 +50,26 @@ clipsRouter.delete('/:id', (request, response, next) => {
 })
 
 clipsRouter.put('/:id', (request, response, next) => {
-  const body = request.body
+    const body = request.body
+    console.log("body:", body)
+    const clip = {
+        startTime: body.startTime || "",
+        endTime: body.endTime || "",
+        title: body.title,
+        datePublished: body.datePublished,
+        link: body.link,
+        name: body.name,
+        guests: body.guests || [],
+        hosts: body.hosts,
+        notes: body.notes || "",
+    }
+    console.log("clip produced:", clip)
 
-  const clip = {
-    startTime: body.startTime || "",
-    endTime: body.endTime || "",
-    title: body.title,
-    datePublished: body.datePublished,
-    link: body.link,
-    name: body.name,
-    guests: body.guests || [],
-    hosts: body.hosts,
-    notes: body.notes || "",
-  }
-
-  Clip.findByIdAndUpdate(request.params.id, clip, { new: true })
-    .then(updatedClip => {
-      response.json(updatedClip)
-    })
-    .catch(error => next(error))
+    Clip.findByIdAndUpdate(request.params.id, clip, { new: true })
+        .then(updatedClip => {
+        response.json(updatedClip)
+        })
+        .catch(error => next(error))
 })
 
 module.exports = clipsRouter

@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/api/clips/6297afb78b5c53df34e6400f

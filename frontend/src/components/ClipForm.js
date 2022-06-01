@@ -70,6 +70,7 @@ const ClipForm = (props) => {
     
     //Potentially create a different submit button that handles updates/puts? that way I can leave this handleSubmit function (which caused me a lot of trouble) and just create a new one
     //Actually not sure that I would have to change the above function that much except for the Post vs Put (w/ findById)
+    //TODO: Validation for submit form
     return (
         <div>
             <h2>New Clip</h2>

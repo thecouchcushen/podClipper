@@ -34,8 +34,7 @@ const PeopleCreatable = (props) => {
         console.log(`${props.valDescriptor} selected:`, names)
         props.changeFunction( names )
     }
-    /* 
-    TODO: Add defaultValue and feed in the array of people if updating/editing an entry already made:
+    /* TODO: Add defaultValue and feed in the array of people if updating/editing an entry already made:
     
     defaultValue={[{value: "Tim Dillon", label: "Tim Dillon"}, {value: "Ben Avery", label: "Ben Avery"}]}
     */

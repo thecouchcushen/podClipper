@@ -1,0 +1,14 @@
+PUT http://localhost:3001/api/clips/6297aab5e05beafa7a14c475
+Content-Type: application/json
+
+{
+    "startTime": "00:25:00",
+    "endTime": "00:27:00",
+    "title": "Chiggers or Berry Bugs w/ Jeremiah Watkins",
+    "datePublished": "05/28/2022",
+    "link": "https://www.youtube.com/watch?v=x895I70X9zU",
+    "name": "Long Days with Yannis Pappas",
+    "guests": ["Jeremiah Watkins"],
+    "hosts": ["Yannis Pappas"],
+    "notes": "Jeremiah impersonaiting new yorkers"
+}

@@ -1,0 +1,1 @@
+GET http://localhost:3001/api/clips/62971b6d15834543a92263c5
