@@ -15,14 +15,14 @@ const clipsRouter = require("./controllers/clips")
 const { errorHandler, requestLogger } = require("./utils/middleware");
 
 // Database options
+
 const mongoDBOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
+  //useFindAndModify: false,
+  //useCreateIndex: true,
 };
 
-/*
 // Connecting to database
 logger.info("connecting to", MONGODB_URI);
 
@@ -34,7 +34,6 @@ mongoose
   .catch((error) => {
     logger.error("error connecting to MongoDB", error.message);
   });
-*/
 
 // Applying middlewares
 app.use(cors());
