@@ -20,10 +20,10 @@ function App() {
   return (
     <div className="App">
       <h1>Add a Clip:</h1>
-      <ClipForm clips={clips} setClips={setClips} />
+      <ClipForm clips={clips} setClips={setClips} clip={null}/>
       <h1>Clips:</h1>
       <h3>TODO: Add filtering functionality here</h3>
-      <Clips clips={clips} />
+      <Clips clips={clips} setClips={setClips} />
     </div>
   );
 }

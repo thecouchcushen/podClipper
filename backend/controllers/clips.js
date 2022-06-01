@@ -51,7 +51,6 @@ clipsRouter.delete('/:id', (request, response, next) => {
 
 clipsRouter.put('/:id', (request, response, next) => {
     const body = request.body
-    console.log("body:", body)
     const clip = {
         startTime: body.startTime || "",
         endTime: body.endTime || "",
@@ -63,7 +62,6 @@ clipsRouter.put('/:id', (request, response, next) => {
         hosts: body.hosts,
         notes: body.notes || "",
     }
-    console.log("clip produced:", clip)
 
     Clip.findByIdAndUpdate(request.params.id, clip, { new: true })
         .then(updatedClip => {

@@ -1,8 +1,12 @@
 import './Clip.css'
 import editIcon from '../edit.svg'
 import deleteIcon from '../delete.svg'
+import {useState} from 'react'
+import clipService from '../services/clips'
 
-const Clip = ({clip}) => {
+const Clip = ({clip, setClips, clips}) => {
+
+    const [id, setId] = useState(clip.id)
 
     // String automatically created based on clip link
     const str1 = "https://img.youtube.com/vi/"
@@ -10,12 +14,11 @@ const Clip = ({clip}) => {
     const str3 = "/default.jpg"
     const imgString = str1.concat(str2,str3)
     // console.log(imgString)
-    
-    /*  TODO: Update to make delete happen in both server and REACT
-    const clipDelete = () => {
-        //axios.delete(`http://localhost:3001/clips/${clip.id - 1 }`)
-        return
-    }  */
+
+    const deleteFunction = () => {
+        clipService.del(id)
+        setClips(clips.filter(clip => clip.id !== id))
+    }
 
     //TODO: Implement Edit/Delete functionalities
     return (
@@ -24,7 +27,7 @@ const Clip = ({clip}) => {
                 <img src={editIcon} alt="Edit" width="8%"></img>
             </a>
             
-            <img src={deleteIcon} alt="Delete" width="8%"></img>
+            <img src={deleteIcon} onClick={deleteFunction} alt="Delete" width="8%"></img>
             <p className="epTitle">{clip.title}</p>
 
             {clip.link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
