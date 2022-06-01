@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "### Author: Liam (thecouchcushen)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "http": "^0.0.1-security",
+    "mongoose": "^6.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thecouchcushen/podClipper.git"
+  },
+  "author": "thecouchcushen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thecouchcushen/podClipper/issues"
+  },
+  "homepage": "https://github.com/thecouchcushen/podClipper/backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
