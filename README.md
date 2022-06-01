@@ -1,6 +1,6 @@
 # podClipper app
 
-### Author: Liam (thecouchcushen)
+## Author: Liam (thecouchcushen)
 
 ### Descripton
 
