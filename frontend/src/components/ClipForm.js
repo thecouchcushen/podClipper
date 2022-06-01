@@ -3,10 +3,15 @@ import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
 import PeopleCreatable from './formComponents/PeopleCreatable'
 import createIcon from '../create.svg'
-import axios from 'axios'
+import clipService from '../services/clips'
 
 const ClipForm = (props) => {
     // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show (could use switch statement to keep the form the same for create edit/update)
+
+    // Deconstruct props
+    const setClips = props.setClips
+    const clips = props.clips
+
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
     const [uploadDate, setUploadDate] = useState('')
@@ -16,20 +21,73 @@ const ClipForm = (props) => {
     const [hosts, setHosts] = useState([])
     const [guests, setGuests] = useState([])
     const [notes, setNotes] = useState('')
+    const [id, setId] = useState('')
 
-    // feed prop isEdit={true} into clipform if the form is an edit of an existing clip. If this is a create/POST request, leave as false and let it initialize normally
-    if (props.isEdit === true) {
-        return
+    if (props.clip !== null) {
+        setTitle(props.clip.title)
+        setLink(props.clip.link)
+        setUploadDate(props.clip.uploadDate)
+        setStartTime(props.clip.startTime)
+        setEndTime(props.clip.endTime)
+        setShowName(props.clip.showName)
+        setHosts(props.clips.hosts)
+        setGuests(props.clips.guests)
+        setNotes(props.clips.notes)
     }
 
-    // Deconstruct props
-    const setClips = props.setClips
-    const clips = props.clips
+    console.log("clipform clip object being passed:", props.clip)
 
-    const handleSubmit = (event) => {
+    const handleUpdateSubmit = (event) => {
         event.preventDefault()
 
-        axios.post("http://localhost:3001/clips", {
+
+        const id = props.clip.id
+        //const clip = clips.find(c => c.id === id)
+        
+
+        clipService.update(id, {
+            "startTime": startTime,
+            "endTime": endTime,
+            "title": title,
+            "datePublished": uploadDate,
+            "link": link,
+            "name": showName,
+            "guests": guests,
+            "hosts": hosts,
+            "notes": notes
+        })
+        .then(response => {
+            setClips(clips.map(clip => clip.id !== id ? clip : response.data))
+            console.log("response:", response)
+        })
+        .then(alert(`Entry has PUT onto the server:
+            "startTime": ${startTime}, \n
+            "endTime": ${endTime}, \n
+            "title": ${title}, \n
+            "datePublished": ${uploadDate}, \n
+            "link": ${link}, \n
+            "name": ${showName}, \n
+            "guests": ${guests}, \n
+            "hosts": ${hosts}, \n
+            "notes": ${notes}
+        `))
+        /*
+        setTitle('')
+        setLink('')
+        setUploadDate('')
+        setStartTime('')
+        setEndTime('')
+        setShowName('')
+        setHosts([])
+        setGuests([])
+        setNotes('')
+        */
+    }
+
+    const handlePostSubmit = (event) => {
+        event.preventDefault()
+
+        clipService.create({
             "startTime": startTime,
             "endTime": endTime,
             "title": title,
@@ -43,8 +101,8 @@ const ClipForm = (props) => {
         .then(response => {
             setClips(clips.concat(response.data))
             console.log("response:", response)
-        })
-        .then(alert(`Entry has posted to the server:
+            console.log('newcliparray:', clips)
+            alert(`Entry has posted to the server:
             "startTime": ${startTime}, \n
             "endTime": ${endTime}, \n
             "title": ${title}, \n
@@ -54,7 +112,9 @@ const ClipForm = (props) => {
             "guests": ${guests}, \n
             "hosts": ${hosts}, \n
             "notes": ${notes}
-        `))
+        `)
+        })
+        /*
         setTitle('')
         setLink('')
         setUploadDate('')
@@ -64,7 +124,7 @@ const ClipForm = (props) => {
         setHosts([])
         setGuests([])
         setNotes('')
-
+        */
     }
     
     
@@ -92,7 +152,7 @@ const ClipForm = (props) => {
             
             <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
 
-            <button onClick={handleSubmit}>
+            <button onClick={(props.clip === null) ? handlePostSubmit : handleUpdateSubmit}>
                 <img src={createIcon} alt="Create icon" width="40%"/>
                 <br />
                 Submit
