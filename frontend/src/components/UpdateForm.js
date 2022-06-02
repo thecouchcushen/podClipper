@@ -11,6 +11,16 @@ const UpdateForm = (props) => {
     const clip = props.clip
     const clips = props.clips
     const setClips = props.setClips
+
+    const setClipStartTime = props.changeFunctions.setStartTime
+    const setClipEndTime = props.changeFunctions.setEndTime
+    const setClipTitle = props.changeFunctions.setTitle
+    const setClipLink = props.changeFunctions.setLink
+    const setClipDatePublished = props.changeFunctions.setDatePublished
+    const setClipShowName = props.changeFunctions.setShowName
+    const setClipGuests = props.changeFunctions.setGuests
+    const setClipHosts = props.changeFunctions.setHosts
+    const setClipNotes = props.changeFunctions.setNotes
     
     const id = clip.id
     const [title, setTitle] = useState(clip.title)
@@ -52,7 +62,19 @@ const UpdateForm = (props) => {
             "hosts": ${hosts}, \n
             "notes": ${notes}
         `))
+
+        setClipStartTime(startTime)
+        setClipEndTime(endTime)
+        setClipTitle(title)
+        setClipDatePublished(uploadDate)
+        setClipLink(link)
+        setClipShowName(showName)
+        setClipGuests(guests)
+        setClipHosts(hosts)
+        setClipNotes(notes)
         //reset values to useState('') afterwards? Depends on how I decide to render form
+
+        
 
     }
 

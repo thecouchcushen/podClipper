@@ -7,9 +7,7 @@ import UpdateForm from './UpdateForm'
 
 const Clip = ({clip, setClips, clips}) => {
 
-    
-
-    const [id, setId] = useState(clip.id)
+    const id = clip.id
 
     const [title, setTitle] = useState(clip.title)
     const [link, setLink] = useState(clip.link)
@@ -38,7 +36,7 @@ const Clip = ({clip, setClips, clips}) => {
             <a href="#top">
                 <img src={editIcon} alt="Edit" width="8%"></img>
             </a>
-            <UpdateForm clips={clips} setClips={setClips} clip={clip} />
+            <UpdateForm clips={clips} setClips={setClips} clip={clip} changeFunctions={{setTitle, setLink, setDatePublished, setStartTime, setEndTime, setShowName, setHosts, setGuests, setNotes}} />
             <img src={deleteIcon} onClick={deleteFunction} alt="Delete" width="8%"></img>
             <p className="epTitle">{title}</p>
 
