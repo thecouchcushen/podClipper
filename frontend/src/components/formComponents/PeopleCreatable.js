@@ -51,9 +51,7 @@ const PeopleCreatable = (props) => {
     }, [])
 
     const [selectedOption, setSelectedOption] = useState(null)
-
-    
-    
+      
     const handleChange = (selectedOption) => {
         setSelectedOption( selectedOption )
         //console.log(`${props.valDescriptor} selected:`, selectedOption)
@@ -62,7 +60,7 @@ const PeopleCreatable = (props) => {
         console.log(`${props.valDescriptor} selected:`, names)
         props.changeFunction( names )
     }
-    
+
     return (
         <div>
             <label>{props.valDescriptor}</label>

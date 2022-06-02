@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+// Clips service to perform HTTP requests on the server (GET POST PUT DELETE)
+
+//TODO: Update upon deployment
 const baseUrl = "http://localhost:3001/api/clips"
 
 const getAll = () => {

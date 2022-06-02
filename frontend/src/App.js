@@ -2,7 +2,6 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import clipService from './services/clips'
-
 import ClipForm from './components/ClipForm'
 import Clips from './components/Clips'
 
@@ -12,7 +11,6 @@ function App() {
   
   //Requests the clips upon first load of the website
   useEffect(() => {
-    //TODO: Integrate services/clips functions here
     clipService.getAll()
                .then(response => setClips(response))
   }, [])

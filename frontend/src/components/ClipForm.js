@@ -8,7 +8,7 @@ import axios from 'axios'
 
 
 const ClipForm = (props) => {
-    // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show (could use switch statement to keep the form the same for create edit/update)
+    // TODO: If integrating update form and post form (could use switch statement to keep the form the same for create edit/update)
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
     const [uploadDate, setUploadDate] = useState('')
@@ -63,7 +63,6 @@ const ClipForm = (props) => {
         setNotes('')
 
     }
-    
     
     //Potentially create a different submit button that handles updates/puts? that way I can leave this handleSubmit function (which caused me a lot of trouble) and just create a new one
     //Actually not sure that I would have to change the above function that much except for the Post vs Put (w/ findById)
