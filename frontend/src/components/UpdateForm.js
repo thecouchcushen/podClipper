@@ -6,27 +6,27 @@ import createIcon from '../create.svg'
 import axios from 'axios'
 
 
+const UpdateForm = (props) => {
 
-const ClipForm = (props) => {
-    // TODO: Change initialization/useState depending on if the clip is new or being added to an existing show (could use switch statement to keep the form the same for create edit/update)
-    const [title, setTitle] = useState('')
-    const [link, setLink] = useState('')
-    const [uploadDate, setUploadDate] = useState('')
-    const [startTime, setStartTime] = useState('')
-    const [endTime, setEndTime] = useState('')
-    const [showName, setShowName] = useState('')
-    const [hosts, setHosts] = useState([])
-    const [guests, setGuests] = useState([])
-    const [notes, setNotes] = useState('')
-
-    // Deconstruct props
-    const setClips = props.setClips
+    const clip = props.clip
     const clips = props.clips
+    const setClips = props.setClips
+    
+    const id = clip.id
+    const [title, setTitle] = useState(clip.title)
+    const [link, setLink] = useState(clip.link)
+    const [uploadDate, setUploadDate] = useState(clip.datePublished)
+    const [startTime, setStartTime] = useState(clip.startTime)
+    const [endTime, setEndTime] = useState(clip.endTime)
+    const [showName, setShowName] = useState(clip.name)
+    const [hosts, setHosts] = useState(clip.hosts)
+    const [guests, setGuests] = useState(clip.guests)
+    const [notes, setNotes] = useState(clip.notes)
 
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        axios.post("http://localhost:3001/api/clips", {
+        axios.put(`http://localhost:3001/api/clips/${id}`, {
             "startTime": startTime,
             "endTime": endTime,
             "title": title,
@@ -38,7 +38,7 @@ const ClipForm = (props) => {
             "notes": notes
         })
         .then(response => {
-            setClips(clips.concat(response.data))
+            setClips(clips.map(clip => clip.id !== id ? clip : response.data))
             console.log("response:", response)
         })
         .then(alert(`Entry has posted to the server:
@@ -52,25 +52,13 @@ const ClipForm = (props) => {
             "hosts": ${hosts}, \n
             "notes": ${notes}
         `))
-        setTitle('')
-        setLink('')
-        setUploadDate('')
-        setStartTime('')
-        setEndTime('')
-        setShowName('')
-        setHosts([])
-        setGuests([])
-        setNotes('')
+        //reset values to useState('') afterwards? Depends on how I decide to render form
 
     }
-    
-    
-    //Potentially create a different submit button that handles updates/puts? that way I can leave this handleSubmit function (which caused me a lot of trouble) and just create a new one
-    //Actually not sure that I would have to change the above function that much except for the Post vs Put (w/ findById)
-    //TODO: Validation for submit form
+
     return (
         <div>
-            <h2>New Clip</h2>
+            <h2>Update Clip</h2>
             <FormInput valDescriptor="title" beingChanged={title} changeFunction={setTitle} />
             <br />
             <FormInput valDescriptor="link" beingChanged={link} changeFunction={setLink} />
@@ -84,8 +72,8 @@ const ClipForm = (props) => {
             <FormInput valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
             <br />
 
-            <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
-            <PeopleCreatable valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={props.clips} />
+            <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={clips} />
+            <PeopleCreatable valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={clips} />
             
             <TextAreaInput valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
 
@@ -98,4 +86,4 @@ const ClipForm = (props) => {
     )
 }
 
-export default ClipForm
+export default UpdateForm

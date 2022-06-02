@@ -23,6 +23,7 @@ const del = (id) => {
 }
 
 const clipService = {
+    baseUrl,
     getAll: getAll,
     create: create,
     update: update,

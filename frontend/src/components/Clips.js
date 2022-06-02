@@ -4,7 +4,7 @@ import FormInput from './formComponents/FormInput'
 import PeopleSelect from './filterComponents/PeopleSelect'
 import ShowSelect from './filterComponents/ShowSelect'
 
-const Clips = ({clips}) => {
+const Clips = ({clips, setClips}) => {
 
     const [noteFilter, setNoteFilter] = useState('')
     const [showFilter, setShowFilter] = useState('')
@@ -28,7 +28,7 @@ const Clips = ({clips}) => {
             <FormInput valDescriptor="noteFilter" beingChanged={noteFilter} changeFunction={setNoteFilter} />
             
 
-            {clipsToShow.map((clip, i) => <Clip key={"clip"+i} clip={clip} /> )}
+            {clipsToShow.map((clip, i) => <Clip key={"clip"+i} clip={clip} clips={clips} setClips={setClips} /> )}
         </div>
     )
 }

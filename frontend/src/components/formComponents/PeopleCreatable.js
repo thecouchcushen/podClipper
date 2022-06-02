@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 
 const PeopleCreatable = (props) => {
@@ -9,8 +9,8 @@ const PeopleCreatable = (props) => {
     //console.log("guestsBlank:", guestsBlank)
     var peopleBlank = hostsBlank.concat(guestsBlank)
     var peopleOptions = [...new Set(peopleBlank)]
-    
     //console.log("peopleOptions:", peopleOptions)
+
 
     //Maps the list of unique people to an array compatible with the React-select componenet
     var persons = []
@@ -22,9 +22,37 @@ const PeopleCreatable = (props) => {
         })
     })
 
-    //console.log(persons)
+    // Loads the initial values of the form based on what is fed through props
+    // (whether or not Hosts or Guests are being changed in this creatable-select component)
+    useEffect(() => {
+        var alreadySelected = []
+        switch (props.valDescriptor) {
+            case "Hosts":
+                props.beingChanged.map(host => {
+                    alreadySelected.push({
+                        value: host,
+                        label: host
+                    })
+                })
+                break;
+            case "Guests":
+                props.beingChanged.map(guest => {
+                    alreadySelected.push({
+                        value: guest,
+                        label: guest
+                    })
+                })
+                break;
+            default:
+                alreadySelected = []
+        } 
+    
+        setSelectedOption(alreadySelected)
+    }, [])
 
     const [selectedOption, setSelectedOption] = useState(null)
+
+    
     
     const handleChange = (selectedOption) => {
         setSelectedOption( selectedOption )
@@ -34,10 +62,7 @@ const PeopleCreatable = (props) => {
         console.log(`${props.valDescriptor} selected:`, names)
         props.changeFunction( names )
     }
-    /* TODO: Add defaultValue and feed in the array of people if updating/editing an entry already made:
     
-    defaultValue={[{value: "Tim Dillon", label: "Tim Dillon"}, {value: "Ben Avery", label: "Ben Avery"}]}
-    */
     return (
         <div>
             <label>{props.valDescriptor}</label>
