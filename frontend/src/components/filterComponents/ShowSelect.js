@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Select from 'react-select'
 
+
 const ShowSelect = (props) => {
 
     //Creates list of unique people by combining arrays of shows
@@ -18,6 +19,8 @@ const ShowSelect = (props) => {
         value: "",
         label: "All shows (no filter)"
     })
+    
+    //FIXME: Fix uniqueness issue in filter dropdown
     showsOptions.map(show => {
         shows.push({
             value: show,
