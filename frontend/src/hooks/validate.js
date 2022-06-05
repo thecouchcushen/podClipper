@@ -63,10 +63,10 @@ function linkValidate(inputId) {
 
     linkError.className = 'error active'
 }
-/*
-function dateValidate() {
-  const dateInput = document.getElementById('createDate')
-  const dateError = document.querySelector('#createDate + span.error')
+
+function dateValidate(inputId) {
+  const dateInput = document.getElementById(inputId)
+  const dateError = document.querySelector(`#${inputId} + span.error`)
 
   dateInput.addEventListener('input', function (event) {
     // Each time the user types something, we check if the
@@ -98,7 +98,7 @@ function dateValidate() {
 
   dateError.className = 'error active'
 }}
-*/
+
 
 function startValidate(inputId) {
   const startInput = document.getElementById(inputId)
@@ -195,7 +195,7 @@ function nameValidate(inputId) {
 
 exports.titleValidate = titleValidate
 exports.linkValidate = linkValidate
-//exports.dateValidate = dateValidate
+exports.dateValidate = dateValidate
 exports.startValidate = startValidate
 exports.endValidate = endValidate
 exports.nameValidate = nameValidate

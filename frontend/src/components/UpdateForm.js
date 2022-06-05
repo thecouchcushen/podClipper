@@ -87,7 +87,7 @@ const UpdateForm = (props) => {
             <br />
             <FormInput inputId="updateLink" inputType="text" isRequired={true} pattern={".*"} valDescriptor="link" beingChanged={link} changeFunction={setLink} />
             <br />
-            <FormInput valDescriptor="uploadDate" beingChanged={uploadDate} changeFunction={setUploadDate} />
+            <FormInput inputId="updateDate" inputType="text" isRequired={true} pattern={"(?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])[-/.](?:19\d{2}|20[01][0-9]|202[0-2])"} valDescriptor="uploadDate" beingChanged={uploadDate} changeFunction={setUploadDate} />
             <br />
             <FormInput inputId="updateStart" inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="startTime" beingChanged={startTime} changeFunction={setStartTime} />
             <br />

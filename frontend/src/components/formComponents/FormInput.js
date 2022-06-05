@@ -1,4 +1,4 @@
-import {linkValidate, startValidate, endValidate, titleValidate, nameValidate} from "../../hooks/validate"
+import {linkValidate, startValidate, endValidate, titleValidate, nameValidate, dateValidate} from "../../hooks/validate"
 
 const FormInput = (props) => {
     
@@ -9,33 +9,32 @@ const FormInput = (props) => {
         switch (props.inputId) {
             case "createTitle":
                 console.log("validating title")
-                titleValidate(props.inputId)
+                titleValidate("createTitle")
                 break
             
             case "createLink":
                 console.log("validating link")
-                linkValidate(props.inputId)
+                linkValidate("createLink")
                 break
-            /*
-            FIXME: Fix date creation validation
+
             case "createDate":
                 console.log("validating date")
-                dateValidate()
+                dateValidate("createDate")
                 break
-            */
+
             case "createStart":
                 console.log("validating start time")
-                startValidate()
+                startValidate("createStart")
                 break
 
             case "createEnd":
                 console.log("validating end time")
-                endValidate()
+                endValidate("createEnd")
                 break
 
             case "createName":
                 console.log("validating show name")
-                nameValidate()
+                nameValidate("createName")
                 break
 
             case "updateTitle":
@@ -61,6 +60,11 @@ const FormInput = (props) => {
             case "updateName":
                 console.log("validating show name")
                 nameValidate("updateName")
+                break
+
+            case "updateDate":
+                console.log("validating date")
+                dateValidate("updateDate")
                 break
 
             default:
