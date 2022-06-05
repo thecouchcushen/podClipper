@@ -72,15 +72,15 @@ const ClipForm = (props) => {
             <h2>New Clip</h2>
             <FormInput inputId="createTitle" inputType="text" isRequired={true} pattern={".*"} valDescriptor="title" beingChanged={title} changeFunction={setTitle} />
             <br />
-            <FormInput id="createLink" valDescriptor="link" beingChanged={link} changeFunction={setLink} />
+            <FormInput inputId="createLink" inputType="text" isRequired={true} pattern={".*"} valDescriptor="link" beingChanged={link} changeFunction={setLink} />
             <br />
-            <FormInput id="createDate" valDescriptor="uploadDate" beingChanged={uploadDate} changeFunction={setUploadDate} />
+            <FormInput inputId="createDate" inputType="date" isRequired={true} pattern={"(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$"} valDescriptor="uploadDate" beingChanged={uploadDate} changeFunction={setUploadDate} />
             <br />
-            <FormInput id="createStart" valDescriptor="startTime" beingChanged={startTime} changeFunction={setStartTime} />
+            <FormInput inputId="createStart" inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="startTime" beingChanged={startTime} changeFunction={setStartTime} />
             <br />
-            <FormInput id="createEnd" valDescriptor="endTime" beingChanged={endTime} changeFunction={setEndTime} />
+            <FormInput inputId="createEnd" inputType="text" isRequired={false} pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="endTime" beingChanged={endTime} changeFunction={setEndTime} />
             <br />
-            <FormInput id="createName" valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
+            <FormInput inputId="createName" inputType="text" isRequired={true} pattern=".*" valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
             <br />
 
             <PeopleCreatable id="createHosts" valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>

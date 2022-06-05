@@ -1,4 +1,4 @@
-import {TitleValidate} from "../../hooks/TitleValidate"
+import {linkValidate, startValidate, endValidate, titleValidate, nameValidate} from "../../hooks/validate"
 
 const FormInput = (props) => {
     
@@ -6,8 +6,40 @@ const FormInput = (props) => {
         console.log(props.valDescriptor , event.target.value)
         props.changeFunction(event.target.value)
 
-        if (props.inputId === "createTitle") {
-            TitleValidate()
+        switch (props.inputId) {
+            case "createTitle":
+                console.log("validating title")
+                titleValidate()
+                break
+            
+            case "createLink":
+                console.log("validating link")
+                linkValidate()
+                break
+            /*
+            FIXME: Fix date creation validation
+            case "createDate":
+                console.log("validating date")
+                dateValidate()
+                break
+            */
+            case "createStart":
+                console.log("validating start time")
+                startValidate()
+                break
+
+            case "createEnd":
+                console.log("validating end time")
+                endValidate()
+                break
+
+            case "createName":
+                console.log("validating show name")
+                nameValidate()
+                break
+
+            default:
+                return
         }
     }
     
