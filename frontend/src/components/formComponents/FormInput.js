@@ -9,12 +9,12 @@ const FormInput = (props) => {
         switch (props.inputId) {
             case "createTitle":
                 console.log("validating title")
-                titleValidate()
+                titleValidate(props.inputId)
                 break
             
             case "createLink":
                 console.log("validating link")
-                linkValidate()
+                linkValidate(props.inputId)
                 break
             /*
             FIXME: Fix date creation validation
@@ -36,6 +36,31 @@ const FormInput = (props) => {
             case "createName":
                 console.log("validating show name")
                 nameValidate()
+                break
+
+            case "updateTitle":
+                console.log("validating episode Title")
+                titleValidate("updateTitle")
+                break
+
+            case "updateLink":
+                console.log("validating episode Link")
+                linkValidate("updateLink")
+                break
+
+            case "updateStart":
+                console.log("validating start time")
+                startValidate("updateStart")
+                break
+
+            case "updateEnd":
+                console.log("validating end time")
+                endValidate("updateEnd")
+                break
+
+            case "updateName":
+                console.log("validating show name")
+                nameValidate("updateName")
                 break
 
             default:

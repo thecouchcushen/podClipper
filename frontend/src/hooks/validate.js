@@ -1,6 +1,6 @@
-function titleValidate() {
-    const titleInput = document.getElementById('createTitle')
-    const titleError = document.querySelector('#createTitle + span.error')
+function titleValidate(inputId) {
+    const titleInput = document.getElementById(`${inputId}`)
+    const titleError = document.querySelector(`#${inputId} + span.error`)
 
     titleInput.addEventListener('input', function (event) {
       // Each time the user types something, we check if the
@@ -31,9 +31,9 @@ function titleValidate() {
     titleError.className = 'error active'
 }
 
-function linkValidate() {
-    const linkInput = document.getElementById('createLink')
-    const linkError = document.querySelector('#createLink + span.error')
+function linkValidate(inputId) {
+    const linkInput = document.getElementById(inputId)
+    const linkError = document.querySelector(`#${inputId} + span.error`)
 
     linkInput.addEventListener('input', function (event) {
       // Each time the user types something, we check if the
@@ -100,9 +100,9 @@ function dateValidate() {
 }}
 */
 
-function startValidate() {
-  const startInput = document.getElementById('createStart')
-  const startError = document.querySelector('#createStart + span.error')
+function startValidate(inputId) {
+  const startInput = document.getElementById(inputId)
+  const startError = document.querySelector(`#${inputId} + span.error`)
 
   startInput.addEventListener('input', function (event) {
     // Each time the user types something, we check if the
@@ -130,9 +130,9 @@ function startValidate() {
   startError.className = 'error active'
 }}
 
-function endValidate() {
-  const endInput = document.getElementById('createEnd')
-  const endError = document.querySelector('#createEnd + span.error')
+function endValidate(inputId) {
+  const endInput = document.getElementById(inputId)
+  const endError = document.querySelector(`#${inputId} + span.error`)
 
   endInput.addEventListener('input', function (event) {
     // Each time the user types something, we check if the
@@ -160,9 +160,9 @@ function endValidate() {
   endError.className = 'error active'
 }}
 
-function nameValidate() {
-  const nameInput = document.getElementById('createName')
-  const nameError = document.querySelector('#createName + span.error')
+function nameValidate(inputId) {
+  const nameInput = document.getElementById(inputId)
+  const nameError = document.querySelector(`#${inputId} + span.error`)
 
   nameInput.addEventListener('input', function (event) {
     // Each time the user types something, we check if the

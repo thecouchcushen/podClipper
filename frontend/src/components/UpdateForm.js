@@ -83,17 +83,17 @@ const UpdateForm = (props) => {
     return (
         <div>
             <h2>Update Clip</h2>
-            <FormInput valDescriptor="title" beingChanged={title} changeFunction={setTitle} />
+            <FormInput inputId="updateTitle" inputType="text" isRequired={true} pattern={".*"} valDescriptor="title" beingChanged={title} changeFunction={setTitle} />
             <br />
-            <FormInput valDescriptor="link" beingChanged={link} changeFunction={setLink} />
+            <FormInput inputId="updateLink" inputType="text" isRequired={true} pattern={".*"} valDescriptor="link" beingChanged={link} changeFunction={setLink} />
             <br />
             <FormInput valDescriptor="uploadDate" beingChanged={uploadDate} changeFunction={setUploadDate} />
             <br />
-            <FormInput valDescriptor="startTime" beingChanged={startTime} changeFunction={setStartTime} />
+            <FormInput inputId="updateStart" inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="startTime" beingChanged={startTime} changeFunction={setStartTime} />
             <br />
-            <FormInput valDescriptor="endTime" beingChanged={endTime} changeFunction={setEndTime} />
+            <FormInput inputId="updateEnd" inputType="text" isRequired={false} pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="endTime" beingChanged={endTime} changeFunction={setEndTime} />
             <br />
-            <FormInput valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
+            <FormInput inputId="updateName" inputType="text" isRequired={true} pattern=".*" valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
             <br />
 
             <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={clips} />
