@@ -11,9 +11,11 @@ function titleValidate(inputId) {
         // is valid, we remove the error message.
         titleError.textContent = '' // Reset the content of the message
         titleError.className = 'error' // Reset the visual state of the message
+        return false
       } else {
         // If there is still an error, show the correct error
         showError()
+        return true
       }
     })
 
@@ -26,9 +28,8 @@ function titleValidate(inputId) {
           // If the field doesn't contain an string
           titleError.textContent = 'Entered value needs to be text.';
         }
+        titleError.className = 'error active'
         }
-
-    titleError.className = 'error active'
 }
 
 function linkValidate(inputId) {
@@ -38,15 +39,17 @@ function linkValidate(inputId) {
     linkInput.addEventListener('input', function (event) {
       // Each time the user types something, we check if the
       // form fields are valid.
-    
+      //console.log(linkInput.validity)
       if (linkInput.validity.valid) {
         // In case there is an error message visible, if the field
         // is valid, we remove the error message.
         linkError.textContent = '' // Reset the content of the message
         linkError.className = 'error' // Reset the visual state of the message
+        return false
       } else {
         // If there is still an error, show the correct error
         showLinkError()
+        return true
       }
     })
 
@@ -54,14 +57,14 @@ function linkValidate(inputId) {
         if(linkInput.validity.valueMissing) {
           // If the field is empty,
           // display the following error message.
-          linkError.textContent = 'You need to enter a link.';
+          linkError.textContent = 'You need to enter a link.'
         } else if(linkInput.validity.typeMismatch) {
           // If the field doesn't contain an string
-          linkError.textContent = 'Entered value needs to be text.';
+          linkError.textContent = 'Entered value needs to be text.'
         }
+        linkError.className = 'error active'
+        
         }
-
-    linkError.className = 'error active'
 }
 
 function dateValidate(inputId) {
@@ -76,10 +79,12 @@ function dateValidate(inputId) {
       // In case there is an error message visible, if the field
       // is valid, we remove the error message.
       dateError.textContent = '' // Reset the content of the message
-      dateError.className = 'error' // Reset the visual state of the message
+      dateError.className = 'error' // Reset the visual state of the message      
+      return false
     } else {
       // If there is still an error, show the correct error
       showDateError()
+      return true
     }
   })
 
@@ -92,10 +97,9 @@ function dateValidate(inputId) {
         // If the field doesn't contain an string
         dateError.textContent = 'Entered value needs to be a valid date (MM-DD-YYYY)';
       } else if(dateInput.validity.patternMismatch) {
-        console.log(dateInput.validity.patternMismatch)
+        //console.log(dateInput.validity.patternMismatch)
         dateError.textContent = 'Enter a valid date (YYYY/MM/DD)'
       }
-
   dateError.className = 'error active'
 }}
 
@@ -113,9 +117,12 @@ function startValidate(inputId) {
       // is valid, we remove the error message.
       startError.textContent = '' // Reset the content of the message
       startError.className = 'error' // Reset the visual state of the message
+      return false
     } else {
       // If there is still an error, show the correct error
+      
       showLinkError()
+      return true
     }
   })
 
@@ -126,7 +133,6 @@ function startValidate(inputId) {
       } else if (startInput.validity.patternMismatch) {
         startError.textContent = 'Entered value needs to be in the form hh:mm:ss or mm:ss'
       }
-
   startError.className = 'error active'
 }}
 
@@ -143,9 +149,11 @@ function endValidate(inputId) {
       // is valid, we remove the error message.
       endError.textContent = '' // Reset the content of the message
       endError.className = 'error' // Reset the visual state of the message
+      return false
     } else {
       // If there is still an error, show the correct error
       showLinkError()
+      return true
     }
   })
 
@@ -156,7 +164,6 @@ function endValidate(inputId) {
       } else if (endInput.validity.patternMismatch) {
         endError.textContent = 'Entered value needs to be in the form hh:mm:ss or mm:ss'
       }
-
   endError.className = 'error active'
 }}
 
@@ -173,9 +180,11 @@ function nameValidate(inputId) {
       // is valid, we remove the error message.
       nameError.textContent = '' // Reset the content of the message
       nameError.className = 'error' // Reset the visual state of the message
+      return false
     } else {
       // If there is still an error, show the correct error
       showError()
+      return true
     }
   })
 
@@ -188,9 +197,8 @@ function nameValidate(inputId) {
         // If the field doesn't contain an string
         nameError.textContent = 'Entered value needs to be text.';
       }
+      nameError.className = 'error active'
       }
-
-  nameError.className = 'error active'
 }
 
 exports.titleValidate = titleValidate

@@ -5,8 +5,6 @@ import PeopleCreatable from './formComponents/PeopleCreatable'
 import createIcon from '../create.svg'
 import axios from 'axios'
 
-
-
 const ClipForm = (props) => {
     // TODO: If integrating update form and post form (could use switch statement to keep the form the same for create edit/update)
     const [title, setTitle] = useState('')
@@ -25,43 +23,49 @@ const ClipForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        
+        //Checks if there are any active errors produced from each FormInput component and that the length of required elements is sufficiently long
+        if ((document.querySelectorAll('.error.active').length === 0) && (title.length !== 0) && (link.length !== 0) && (uploadDate.length !== 0) && (showName.length !== 0) && (hosts.length !== 0)){
+            axios.post("http://localhost:3001/api/clips", {
+                "startTime": startTime,
+                "endTime": endTime,
+                "title": title,
+                "datePublished": uploadDate,
+                "link": link,
+                "name": showName,
+                "guests": guests,
+                "hosts": hosts,
+                "notes": notes
+            })
+            .then(response => {
+                setClips(clips.concat(response.data))
+                console.log("response:", response)
+            })
+            .then(alert(`Entry has posted to the server:
+                "startTime": ${startTime}, \n
+                "endTime": ${endTime}, \n
+                "title": ${title}, \n
+                "datePublished": ${uploadDate}, \n
+                "link": ${link}, \n
+                "name": ${showName}, \n
+                "guests": ${guests}, \n
+                "hosts": ${hosts}, \n
+                "notes": ${notes}
+            `))
+            setTitle('')
+            setLink('')
+            setUploadDate('')
+            setStartTime('')
+            setEndTime('')
+            setShowName('')
+            setHosts([])
+            setGuests([])
+            setNotes('')
+        } else {
+            alert("Fix your validation errors first")
+        }
 
-        axios.post("http://localhost:3001/api/clips", {
-            "startTime": startTime,
-            "endTime": endTime,
-            "title": title,
-            "datePublished": uploadDate,
-            "link": link,
-            "name": showName,
-            "guests": guests,
-            "hosts": hosts,
-            "notes": notes
-        })
-        .then(response => {
-            setClips(clips.concat(response.data))
-            console.log("response:", response)
-        })
-        .then(alert(`Entry has posted to the server:
-            "startTime": ${startTime}, \n
-            "endTime": ${endTime}, \n
-            "title": ${title}, \n
-            "datePublished": ${uploadDate}, \n
-            "link": ${link}, \n
-            "name": ${showName}, \n
-            "guests": ${guests}, \n
-            "hosts": ${hosts}, \n
-            "notes": ${notes}
-        `))
-        setTitle('')
-        setLink('')
-        setUploadDate('')
-        setStartTime('')
-        setEndTime('')
-        setShowName('')
-        setHosts([])
-        setGuests([])
-        setNotes('')
-
+        
     }
 
     //Potentially create a different submit button that handles updates/puts? that way I can leave this handleSubmit function (which caused me a lot of trouble) and just create a new one
@@ -83,7 +87,7 @@ const ClipForm = (props) => {
             <FormInput inputId="createName" inputType="text" isRequired={true} pattern=".*" valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
             <br />
 
-            <PeopleCreatable id="createHosts" valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
+            <PeopleCreatable id="createHosts" valDescriptor="Hosts (include at least 1)" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
             <PeopleCreatable id="createGuests" valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={props.clips} />
             
             <TextAreaInput id="createNotes" valDescriptor="notes" beingChanged={notes} changeFunction={setNotes} />
@@ -93,8 +97,10 @@ const ClipForm = (props) => {
                 <br />
                 Submit
             </button>
+            
         </div>
     )
+
 }
 
 export default ClipForm

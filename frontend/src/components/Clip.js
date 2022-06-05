@@ -31,7 +31,6 @@ const Clip = ({clip, setClips, clips}) => {
         setClips(clips.filter(clip => clip.id !== id))
     }
 
-    //FIXME: Fix Date rendering to readable format
     return (
         <div className="clipPanel">
             <a href="#top">

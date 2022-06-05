@@ -19,7 +19,6 @@ const Clips = ({clips, setClips}) => {
 
     const clipsToShow = clipsToShowPERSON
 
-    // TODO: Notes filter form input validation
     return (
         <div>
             <PeopleSelect clips={clips} valDescriptor="peopleFilter" beingChanged={personFilter} changeFunction={setPersonFilter} />
