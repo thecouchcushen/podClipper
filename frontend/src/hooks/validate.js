@@ -93,7 +93,7 @@ function dateValidate(inputId) {
         dateError.textContent = 'Entered value needs to be a valid date (MM-DD-YYYY)';
       } else if(dateInput.validity.patternMismatch) {
         console.log(dateInput.validity.patternMismatch)
-        dateError.textContent = 'Enter a valid date (MM/DD/YYYY)'
+        dateError.textContent = 'Enter a valid date (YYYY/MM/DD)'
       }
 
   dateError.className = 'error active'

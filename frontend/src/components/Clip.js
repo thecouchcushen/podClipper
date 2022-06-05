@@ -11,7 +11,7 @@ const Clip = ({clip, setClips, clips}) => {
 
     const [title, setTitle] = useState(clip.title)
     const [link, setLink] = useState(clip.link)
-    const [datePublished, setDatePublished] = useState(clip.datePublished)
+    const [datePublished, setDatePublished] = useState(clip.datePublished.slice(0,clip.datePublished.indexOf("T")))
     const [startTime, setStartTime] = useState(clip.startTime)
     const [endTime, setEndTime] = useState(clip.endTime)
     const [showName, setShowName] = useState(clip.name)
