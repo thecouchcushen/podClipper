@@ -1,5 +1,4 @@
-/*
-TODO: CITE in readme
+/*TODO: CITE in readme
 
 This was taken from https://github.com/RodolfoSarkisRocha/fullstack-open-part-4/blob/master/utils/middleware.js
 */

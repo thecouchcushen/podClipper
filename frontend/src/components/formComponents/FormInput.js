@@ -1,4 +1,4 @@
-import {linkValidate, startValidate, endValidate, titleValidate, nameValidate, dateValidate} from "../../hooks/validate"
+import {linkValidate, startValidate, endValidate, titleValidate, nameValidate, dateValidate} from "../../services/validate"
 
 const FormInput = (props) => {
     const handleChange = (event) => {
@@ -71,7 +71,6 @@ const FormInput = (props) => {
             default:
                 return
         }
-        //console.log(props.errors)
     }
     
     return (

@@ -20,7 +20,6 @@ const ShowSelect = (props) => {
         label: "All shows (no filter)"
     })
     
-    //FIXME: Fix uniqueness issue in filter dropdown
     showsOptions.map(show => {
         shows.push({
             value: show,

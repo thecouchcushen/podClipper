@@ -37,7 +37,7 @@ const Clip = ({clip, setClips, clips}) => {
     const handleEditDisplaySubmit = (event) => {
         if (!dispUpdateForm) {
             setDispUpdateForm(true)
-            setButtonContents("Cancel Clip Update")
+            setButtonContents("Hide Update Form")
           } else {
             setDispUpdateForm(false)
             setButtonContents("Update Clip")
@@ -55,12 +55,14 @@ const Clip = ({clip, setClips, clips}) => {
     return (
         <div className="clipPanel">
             <button onClick={handleEditDisplaySubmit}>{buttonContents}
-                <img src={editIcon} alt="Edit" width="8%"></img>
+                <img src={editIcon} alt="Edit" width="80%"></img>
             </button>
                 
             
             {handleFormDisplay()}
-            <img src={deleteIcon} onClick={deleteFunction} alt="Delete" width="8%"></img>
+            <button onClick={deleteFunction}>Delete Clip
+                <img src={deleteIcon} alt="Delete" width="80%"></img>
+            </button>
             <p className="epTitle">{title}</p>
 
             {link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
