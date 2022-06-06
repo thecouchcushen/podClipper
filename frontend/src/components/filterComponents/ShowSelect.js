@@ -9,7 +9,7 @@ const ShowSelect = (props) => {
     props.clips.map(clip => showsOptions.push(clip.name))
     //var showsBlank = props.clips.map(clip => [...clip.name]).flat()
     //console.log("showsBlank:", showsBlank)
-    //var showsOptions = [...new Set(showsBlank)]
+    showsOptions = [...new Set(showsOptions)]
     
     //console.log("showsOptions:", showsOptions)
 
