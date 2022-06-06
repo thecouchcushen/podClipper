@@ -37,46 +37,50 @@ const UpdateForm = (props) => {
         event.preventDefault()
 
         //TODO: Update link to backend after deployment (potentially use clips service but was running into rendering errors previously)
+        if ((document.querySelectorAll('.error.active').length === 0) && (title.length !== 0) && (link.length !== 0) && (uploadDate.length !== 0) && (showName.length !== 0) && (hosts.length !== 0)) {
+            axios.put(`http://localhost:3001/api/clips/${id}`, {
+                "startTime": startTime,
+                "endTime": endTime,
+                "title": title,
+                "datePublished": uploadDate,
+                "link": link,
+                "name": showName,
+                "guests": guests,
+                "hosts": hosts,
+                "notes": notes
+            })
+            .then(response => {
+                //Updates list of clips that are rendered/filtered to reflect the updated data
+                setClips(clips.map(clip => clip.id !== id ? clip : response.data))
+                console.log("response:", response)
+            })
+            // Creates a pop-up alerting the user of the successful update to the server
+            .then(alert(`Entry has updated on the server:
+                "startTime": ${startTime}, \n
+                "endTime": ${endTime}, \n
+                "title": ${title}, \n
+                "datePublished": ${uploadDate}, \n
+                "link": ${link}, \n
+                "name": ${showName}, \n
+                "guests": ${guests}, \n
+                "hosts": ${hosts}, \n
+                "notes": ${notes}
+            `))
+    
+            // Updates/rerenders the clip
+            setClipStartTime(startTime)
+            setClipEndTime(endTime)
+            setClipTitle(title)
+            setClipDatePublished(uploadDate)
+            setClipLink(link)
+            setClipShowName(showName)
+            setClipGuests(guests)
+            setClipHosts(hosts)
+            setClipNotes(notes)
+        } else {
+            alert("Fix your validation errors first")
+        }
         
-        axios.put(`http://localhost:3001/api/clips/${id}`, {
-            "startTime": startTime,
-            "endTime": endTime,
-            "title": title,
-            "datePublished": uploadDate,
-            "link": link,
-            "name": showName,
-            "guests": guests,
-            "hosts": hosts,
-            "notes": notes
-        })
-        .then(response => {
-            //Updates list of clips that are rendered/filtered to reflect the updated data
-            setClips(clips.map(clip => clip.id !== id ? clip : response.data))
-            console.log("response:", response)
-        })
-        // Creates a pop-up alerting the user of the successful update to the server
-        .then(alert(`Entry has updated on the server:
-            "startTime": ${startTime}, \n
-            "endTime": ${endTime}, \n
-            "title": ${title}, \n
-            "datePublished": ${uploadDate}, \n
-            "link": ${link}, \n
-            "name": ${showName}, \n
-            "guests": ${guests}, \n
-            "hosts": ${hosts}, \n
-            "notes": ${notes}
-        `))
-
-        // Updates/rerenders the clip
-        setClipStartTime(startTime)
-        setClipEndTime(endTime)
-        setClipTitle(title)
-        setClipDatePublished(uploadDate)
-        setClipLink(link)
-        setClipShowName(showName)
-        setClipGuests(guests)
-        setClipHosts(hosts)
-        setClipNotes(notes)
 
     }
 

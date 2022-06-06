@@ -20,52 +20,52 @@ const FormInput = (props) => {
 
             case "createDate":
                 console.log("validating date")
-                dateValidate("createDate", props.errors, props.setErrors)
+                dateValidate("createDate")
                 break
 
             case "createStart":
                 console.log("validating start time")
-                startValidate("createStart", props.errors, props.setErrors)
+                startValidate("createStart")
                 break
 
             case "createEnd":
                 console.log("validating end time")
-                endValidate("createEnd", props.errors, props.setErrors)
+                endValidate("createEnd")
                 break
 
             case "createName":
                 console.log("validating show name")
-                nameValidate("createName", props.errors, props.setErrors)
+                nameValidate("createName")
                 break
 
             case "updateTitle":
                 console.log("validating episode Title")
-                titleValidate("updateTitle", props.errors, props.setErrors)
+                titleValidate("updateTitle")
                 break
 
             case "updateLink":
                 console.log("validating episode Link")
-                linkValidate("updateLink", props.errors, props.setErrors)
+                linkValidate("updateLink")
                 break
 
             case "updateStart":
                 console.log("validating start time")
-                startValidate("updateStart", props.errors, props.setErrors)
+                startValidate("updateStart")
                 break
 
             case "updateEnd":
                 console.log("validating end time")
-                endValidate("updateEnd", props.errors, props.setErrors)
+                endValidate("updateEnd")
                 break
 
             case "updateName":
                 console.log("validating show name")
-                nameValidate("updateName", props.errors, props.setErrors)
+                nameValidate("updateName")
                 break
 
             case "updateDate":
                 console.log("validating date")
-                dateValidate("updateDate", props.errors, props.setErrors)
+                dateValidate("updateDate")
                 break
 
             default:
