@@ -1,3 +1,4 @@
+import './Clips.css'
 import {useState} from 'react'
 import Clip from './Clip'
 import FormInput from './formComponents/FormInput'
@@ -21,13 +22,16 @@ const Clips = ({clips, setClips}) => {
 
     return (
         <div>
-            <PeopleSelect clips={clips} valDescriptor="peopleFilter" beingChanged={personFilter} changeFunction={setPersonFilter} />
-            <ShowSelect clips={clips} valDescriptor="showFilter" beingChanged={showFilter} changeFunction={setShowFilter} />
-            
-            <FormInput valDescriptor="noteFilter" beingChanged={noteFilter} changeFunction={setNoteFilter} />
-            
-
+            <div className='filter-wrapper'>
+                <PeopleSelect clips={clips} valDescriptor="Filter by People: (guests or hosts)" beingChanged={personFilter} changeFunction={setPersonFilter} />
+                <ShowSelect clips={clips} valDescriptor="Filter by Show:" beingChanged={showFilter} changeFunction={setShowFilter} />
+                <div className='individual-filter-container'>
+                    <FormInput valDescriptor="Filter by description/notes: " beingChanged={noteFilter} changeFunction={setNoteFilter} />
+                </div>
+            </div>
+            <div className='clip-wrapper'>
             {clipsToShow.map((clip, i) => <Clip key={"clip"+i} clip={clip} clips={clips} setClips={setClips} /> )}
+            </div>
         </div>
     )
 }

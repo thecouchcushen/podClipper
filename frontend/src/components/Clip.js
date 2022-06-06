@@ -37,7 +37,7 @@ const Clip = ({clip, setClips, clips}) => {
     const handleEditDisplaySubmit = (event) => {
         if (!dispUpdateForm) {
             setDispUpdateForm(true)
-            setButtonContents("Hide Update Form")
+            setButtonContents("Done Updating")
           } else {
             setDispUpdateForm(false)
             setButtonContents("Update Clip")
@@ -48,7 +48,24 @@ const Clip = ({clip, setClips, clips}) => {
         if (dispUpdateForm) {
             return (<UpdateForm clips={clips} setClips={setClips} clip={clip} changeFunctions={{setTitle, setLink, setDatePublished, setStartTime, setEndTime, setShowName, setHosts, setGuests, setNotes}} />)
           } else {
-            return
+            return (
+            <>
+                <button onClick={deleteFunction}>Delete Clip
+                    <img src={deleteIcon} alt="Delete" width="80%"></img>
+                </button>
+                <p className="epTitle">{title}</p>
+
+                {link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
+                <br />
+                <a className="epLink" href={link} target="_blank" rel="noreferrer">Link to podcast</a>
+                <p className="epDate">Uploaded: {datePublished}</p>
+                <p className="timestamp">Time: {startTime} - {endTime}</p>
+                <p className="showName">{showName}</p>
+                <div>Hosts: {hosts.map((host, i) => <p className="hostNames" key={"Host"+i}>{host}</p>)}</div>
+                <div>Guests: {guests.map((guest, i) => <p className="guestNames" key={"Guest"+i}>{guest}</p>)}</div>
+                <p className="clipNotes">{notes}</p>
+            </>
+            )
           }
     }
 
@@ -58,22 +75,8 @@ const Clip = ({clip, setClips, clips}) => {
                 <img src={editIcon} alt="Edit" width="80%"></img>
             </button>
                 
-            
             {handleFormDisplay()}
-            <button onClick={deleteFunction}>Delete Clip
-                <img src={deleteIcon} alt="Delete" width="80%"></img>
-            </button>
-            <p className="epTitle">{title}</p>
-
-            {link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
-            <br />
-            <a className="epLink" href={link} target="_blank" rel="noreferrer">Link to podcast</a>
-            <p className="epDate">Uploaded: {datePublished}</p>
-            <p className="timestamp">Time: {startTime} - {endTime}</p>
-            <p className="showName">{showName}</p>
-            <div>Hosts: {hosts.map((host, i) => <p className="hostNames" key={"Host"+i}>{host}</p>)}</div>
-            <div>Guests: {guests.map((guest, i) => <p className="guestNames" key={"Guest"+i}>{guest}</p>)}</div>
-            <p className="clipNotes">{notes}</p>
+            
         </div>
     )
 }

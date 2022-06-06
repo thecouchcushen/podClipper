@@ -8,9 +8,7 @@ const FormInput = (props) => {
         switch (props.inputId) {
             case "createTitle":
                 console.log("validating title")
-                //console.log("error before validating: ", error)
                 titleValidate("createTitle")
-                //console.log("error: ", error)
                 break
             
             case "createLink":
@@ -75,6 +73,7 @@ const FormInput = (props) => {
     
     return (
         <label htmlFor={props.valDescriptor}>{props.valDescriptor}
+        <br />
             <input
                 id={props.inputId}
                 type={props.inputType} 

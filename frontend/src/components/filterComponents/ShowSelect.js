@@ -36,8 +36,8 @@ const ShowSelect = (props) => {
     }
 
     return (
-        <div>
-            <label>{props.valDescriptor}
+        <div className='individual-filter-container'>
+            <label className='filter-label'>{props.valDescriptor}
                 <Select
                 name="showsFilter"
                 options={shows}

@@ -21,29 +21,37 @@ function App() {
   const handleSubmit = (event) => {
     if (!dispCreateForm) {
       setDispCreateForm(true)
-      setButtonContents("Cancel Clip Create")
+      setButtonContents("Done adding clips")
     } else {
       setDispCreateForm(false)
-      setButtonContents("+ New Clip")
+      setButtonContents("Add Clips")
     }
   }
 
   const handleFormDisplay = () => {
     if (dispCreateForm) {
-      return (<ClipForm id="createForm" clips={clips} setClips={setClips} clip={null} />)
+      return (
+      <>
+        <h1>Add a Clip:</h1>
+        <ClipForm id="createForm" clips={clips} setClips={setClips} clip={null} />
+      </>
+      )
     } else {
-      return
+      return (
+      <>
+        <h1>Clips:</h1>
+        <Clips clips={clips} setClips={setClips} />
+      </>
+      )
     }
   }
 
   return (
     <div className="App">
-      <h1>Add a Clip:</h1>
+      
       <button onClick={handleSubmit}>{buttonContents}</button>
       {handleFormDisplay()}
       
-      <h1>Clips:</h1>
-      <Clips clips={clips} setClips={setClips} />
     </div>
   );
 }

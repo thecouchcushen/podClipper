@@ -1,5 +1,5 @@
 .clipPanel {
-    margin: 50px 200px 50px 200px;
     padding: 10px;
-    background-color: aquamarine;
+    background-color: #83b9db;
+    border-radius: 5px;
 }
