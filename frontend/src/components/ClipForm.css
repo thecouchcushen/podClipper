@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #83b9db;
+    background-color: #9da7ad;
     border-radius: 5px;
     margin: 20px 30px 20px 30px;
     padding: 10px 20px 10px 20px;
@@ -25,4 +25,9 @@ label {
 
 button {
     max-width: 100px;
+    background-color: #8c52ff76;
+    border: 0;
+    border-radius: 5px;
+    min-width: 50px;
+    min-height: 50px;
 }

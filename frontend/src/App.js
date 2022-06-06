@@ -4,13 +4,14 @@ import {useState, useEffect} from 'react'
 import clipService from './services/clips'
 import ClipForm from './components/ClipForm'
 import Clips from './components/Clips'
+import Logo from './PodClipperLogo.svg'
 
 function App() {
 
   const [clips, setClips] = useState([])
 
   const [dispCreateForm, setDispCreateForm] = useState(false)
-  const [buttonContents, setButtonContents] = useState("+ New Clip")
+  const [buttonContents, setButtonContents] = useState("Add Clips")
   
   //Requests the clips upon first load of the website
   useEffect(() => {
@@ -21,7 +22,7 @@ function App() {
   const handleSubmit = (event) => {
     if (!dispCreateForm) {
       setDispCreateForm(true)
-      setButtonContents("Done adding clips")
+      setButtonContents("Cancel/Quit Adding")
     } else {
       setDispCreateForm(false)
       setButtonContents("Add Clips")
@@ -48,8 +49,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>PodClipper</h1>
-      <button onClick={handleSubmit}>{buttonContents}</button>
+      <header className='App-header'>
+        <img src={Logo} alt='unable to access logo' width="20%"></img>
+        <h1>PodClipper</h1>
+        <h3>by Liam</h3>
+      </header>
+      <button className='create-form-button' onClick={handleSubmit}>{buttonContents}</button>
       {handleFormDisplay()}
       
     </div>

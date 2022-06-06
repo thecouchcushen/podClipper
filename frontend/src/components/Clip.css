@@ -1,16 +1,15 @@
 .clipPanel {
     padding: 10px;
-    background-color: #83b9db;
+    background-color: #9da7ad;
     border-radius: 5px;
 }
 
 .clipPanel button {
     border: 0px;
     border-radius: 5px;
-    background-color: #f8ffc4;
-    opacity: 80%;
+    background-color: #8c52ff76;
     margin: 0px 10px 0px 10px;
     padding: 5px;
-    max-width: 75px;
+    width: 75px;
 }
 
