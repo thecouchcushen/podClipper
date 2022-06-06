@@ -8,6 +8,9 @@ import Clips from './components/Clips'
 function App() {
 
   const [clips, setClips] = useState([])
+
+  const [dispCreateForm, setDispCreateForm] = useState(false)
+  const [buttonContents, setButtonContents] = useState("+ New Clip")
   
   //Requests the clips upon first load of the website
   useEffect(() => {
@@ -15,12 +18,31 @@ function App() {
                .then(response => setClips(response))
   }, [])
 
+  const handleSubmit = (event) => {
+    if (!dispCreateForm) {
+      setDispCreateForm(true)
+      setButtonContents("Cancel Clip Create")
+    } else {
+      setDispCreateForm(false)
+      setButtonContents("+ New Clip")
+    }
+  }
+
+  const handleFormDisplay = () => {
+    if (dispCreateForm) {
+      return (<ClipForm id="createForm" clips={clips} setClips={setClips} clip={null} />)
+    } else {
+      return
+    }
+  }
+
   return (
     <div className="App">
       <h1>Add a Clip:</h1>
-      <ClipForm clips={clips} setClips={setClips} clip={null}/>
+      <button onClick={handleSubmit}>{buttonContents}</button>
+      {handleFormDisplay()}
+      
       <h1>Clips:</h1>
-      <h3>TODO: Add filtering functionality here</h3>
       <Clips clips={clips} setClips={setClips} />
     </div>
   );

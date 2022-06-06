@@ -7,6 +7,9 @@ import UpdateForm from './UpdateForm'
 
 const Clip = ({clip, setClips, clips}) => {
 
+    const [dispUpdateForm, setDispUpdateForm] = useState(false)
+    const [buttonContents, setButtonContents] = useState("Update Clip")
+
     const id = clip.id
 
     const [title, setTitle] = useState(clip.title)
@@ -31,12 +34,32 @@ const Clip = ({clip, setClips, clips}) => {
         setClips(clips.filter(clip => clip.id !== id))
     }
 
+    const handleEditDisplaySubmit = (event) => {
+        if (!dispUpdateForm) {
+            setDispUpdateForm(true)
+            setButtonContents("Cancel Clip Update")
+          } else {
+            setDispUpdateForm(false)
+            setButtonContents("Update Clip")
+          }
+    }
+
+    const handleFormDisplay = () => {
+        if (dispUpdateForm) {
+            return (<UpdateForm clips={clips} setClips={setClips} clip={clip} changeFunctions={{setTitle, setLink, setDatePublished, setStartTime, setEndTime, setShowName, setHosts, setGuests, setNotes}} />)
+          } else {
+            return
+          }
+    }
+
     return (
         <div className="clipPanel">
-            <a href="#top">
+            <button onClick={handleEditDisplaySubmit}>{buttonContents}
                 <img src={editIcon} alt="Edit" width="8%"></img>
-            </a>
-            <UpdateForm clips={clips} setClips={setClips} clip={clip} changeFunctions={{setTitle, setLink, setDatePublished, setStartTime, setEndTime, setShowName, setHosts, setGuests, setNotes}} />
+            </button>
+                
+            
+            {handleFormDisplay()}
             <img src={deleteIcon} onClick={deleteFunction} alt="Delete" width="8%"></img>
             <p className="epTitle">{title}</p>
 
