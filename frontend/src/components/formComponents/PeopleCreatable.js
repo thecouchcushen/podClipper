@@ -62,14 +62,15 @@ const PeopleCreatable = (props) => {
     }
 
     return (
-        <div>
-            <label>{props.valDescriptor}</label>
+        
+            <label>{props.valDescriptor}
             <CreatableSelect
                 isMulti
                 options={persons}
                 value={selectedOption}
                 onChange={handleChange} />
-        </div>
+            </label>
+       
     )
 }
 

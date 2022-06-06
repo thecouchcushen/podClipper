@@ -1,3 +1,4 @@
+import './UpdateForm.css'
 import {useState} from 'react'
 import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
@@ -85,20 +86,20 @@ const UpdateForm = (props) => {
     }
 
     return (
-        <div>
+        <div className='update-form-wrapper'>
             <h2>Update Clip</h2>
-            <FormInput inputId="updateTitle" inputType="text" isRequired={true} pattern={".*"} valDescriptor="title" beingChanged={title} changeFunction={setTitle} />
-            <br />
-            <FormInput inputId="updateLink" inputType="text" isRequired={true} pattern={".*"} valDescriptor="link" beingChanged={link} changeFunction={setLink} />
-            <br />
-            <FormInput inputId="updateDate" inputType="text" isRequired={true} pattern={"(?:19\d{2}|20[01][0-9]|202[0-2])[-/.](?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])"} valDescriptor="uploadDate" beingChanged={uploadDate} changeFunction={setUploadDate} />
-            <br />
-            <FormInput inputId="updateStart" inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="startTime" beingChanged={startTime} changeFunction={setStartTime} />
-            <br />
-            <FormInput inputId="updateEnd" inputType="text" isRequired={false} pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="endTime" beingChanged={endTime} changeFunction={setEndTime} />
-            <br />
-            <FormInput inputId="updateName" inputType="text" isRequired={true} pattern=".*" valDescriptor="showName" beingChanged={showName} changeFunction={setShowName} />
-            <br />
+            <FormInput inputId="updateTitle" inputType="text" isRequired={true} pattern={".*"} valDescriptor="Episode Title:" beingChanged={title} changeFunction={setTitle} />
+
+            <FormInput inputId="updateLink" inputType="text" isRequired={true} pattern={".*"} valDescriptor="Link to episode:" beingChanged={link} changeFunction={setLink} />
+
+            <FormInput inputId="updateDate" inputType="text" isRequired={true} pattern={"(?:19\d{2}|20[01][0-9]|202[0-2])[-/.](?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])"} valDescriptor="Date uploaded:" beingChanged={uploadDate} changeFunction={setUploadDate} />
+
+            <FormInput inputId="updateStart" inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="Timestamp where the clip begins:" beingChanged={startTime} changeFunction={setStartTime} />
+
+            <FormInput inputId="updateEnd" inputType="text" isRequired={false} pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="Timestamp where the clip ends:" beingChanged={endTime} changeFunction={setEndTime} />
+            
+            <FormInput inputId="updateName" inputType="text" isRequired={true} pattern=".*" valDescriptor="Podcast/Show name:" beingChanged={showName} changeFunction={setShowName} />
+            
 
             <PeopleCreatable valDescriptor="Hosts" beingChanged={hosts} changeFunction={setHosts} clips={clips} />
             <PeopleCreatable valDescriptor="Guests" beingChanged={guests} changeFunction={setGuests} clips={clips} />

@@ -7,6 +7,7 @@ const TextAreaInput = (props) => {
 
     return (
         <label>{props.valDescriptor}
+        <br/>
             <textarea 
                 name={props.valDescriptor}
                 value={props.beingChanged}

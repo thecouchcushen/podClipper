@@ -37,7 +37,7 @@ const Clip = ({clip, setClips, clips}) => {
     const handleEditDisplaySubmit = (event) => {
         if (!dispUpdateForm) {
             setDispUpdateForm(true)
-            setButtonContents("Done Updating")
+            setButtonContents("Cancel Update")
           } else {
             setDispUpdateForm(false)
             setButtonContents("Update Clip")
@@ -53,17 +53,17 @@ const Clip = ({clip, setClips, clips}) => {
                 <button onClick={deleteFunction}>Delete Clip
                     <img src={deleteIcon} alt="Delete" width="80%"></img>
                 </button>
-                <p className="epTitle">{title}</p>
-
-                {link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="25%"></img> : <p>No img available (not on YouTube)</p>}
-                <br />
-                <a className="epLink" href={link} target="_blank" rel="noreferrer">Link to podcast</a>
-                <p className="epDate">Uploaded: {datePublished}</p>
-                <p className="timestamp">Time: {startTime} - {endTime}</p>
+                <p className="epTitle"><strong>{title}</strong></p>
                 <p className="showName">{showName}</p>
-                <div>Hosts: {hosts.map((host, i) => <p className="hostNames" key={"Host"+i}>{host}</p>)}</div>
-                <div>Guests: {guests.map((guest, i) => <p className="guestNames" key={"Guest"+i}>{guest}</p>)}</div>
-                <p className="clipNotes">{notes}</p>
+                {link.includes("youtube.com") ? <img src={imgString} alt="No img available (not on YouTube)" width="60%"></img> : <p>No img available (not on YouTube)</p>}
+                <br />
+                <a className="epLink" href={link} target="_blank" rel="noreferrer">Link to episode</a>
+                <p className="epDate"><strong>Uploaded:</strong> {datePublished}</p>
+                <p className="timestamp"><strong>Time: </strong> {startTime} - {endTime}</p>
+                
+                <div><strong>Hosts: </strong>{hosts.map((host, i) => <p className="hostNames" key={"Host"+i}>{host}</p>)}</div>
+                <div><strong>Guests: </strong> {guests.map((guest, i) => <p className="guestNames" key={"Guest"+i}>{guest}</p>)}</div>
+                <p className="clipNotes"><strong>Notes/Description: </strong>{notes}</p>
             </>
             )
           }

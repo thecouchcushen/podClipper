@@ -32,14 +32,14 @@ function App() {
     if (dispCreateForm) {
       return (
       <>
-        <h1>Add a Clip:</h1>
+        <h2>Add a Clip:</h2>
         <ClipForm id="createForm" clips={clips} setClips={setClips} clip={null} />
       </>
       )
     } else {
       return (
       <>
-        <h1>Clips:</h1>
+        <h2>Clips:</h2>
         <Clips clips={clips} setClips={setClips} />
       </>
       )
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <h1>PodClipper</h1>
       <button onClick={handleSubmit}>{buttonContents}</button>
       {handleFormDisplay()}
       

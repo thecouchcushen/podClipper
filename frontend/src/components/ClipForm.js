@@ -72,19 +72,20 @@ const ClipForm = (props) => {
     //Potentially create a different submit button that handles updates/puts? that way I can leave this handleSubmit function (which caused me a lot of trouble) and just create a new one
     //Actually not sure that I would have to change the above function that much except for the Post vs Put (w/ findById)
     return (
+        <div className='create-form-wrapper'>
+        <h2>New Clip</h2>
         <div className='create-clip-form'>
-            <h2>New Clip</h2>
-            <FormInput inputId="createTitle" inputType="text" isRequired={true} pattern={".*"} valDescriptor="Episode Title:" beingChanged={title} changeFunction={setTitle} />
+            <FormInput inputId="createTitle"  inputType="text" isRequired={true} pattern={".*"} valDescriptor="Episode Title:" beingChanged={title} changeFunction={setTitle} />
             <br />
-            <FormInput inputId="createLink" inputType="text" isRequired={true} pattern={".*"} valDescriptor="Link to episode:" beingChanged={link} changeFunction={setLink} />
+            <FormInput inputId="createLink"  inputType="text" isRequired={true} pattern={".*"} valDescriptor="Link to episode:" beingChanged={link} changeFunction={setLink} />
             <br />
-            <FormInput inputId="createDate" inputType="text" isRequired={true} pattern={"(?:19\d{2}|20[01][0-9]|202[0-2])[-/.](?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])"} valDescriptor="Date uploaded:" beingChanged={uploadDate} changeFunction={setUploadDate} />
+            <FormInput inputId="createDate"  inputType="text" isRequired={true} pattern={"(?:19\d{2}|20[01][0-9]|202[0-2])[-/.](?:0[1-9]|1[012])[-/.](?:0[1-9]|[12][0-9]|3[01])"} valDescriptor="Date uploaded:" beingChanged={uploadDate} changeFunction={setUploadDate} />
             <br />
-            <FormInput inputId="createStart" inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="Timestamp where the clip begins:" beingChanged={startTime} changeFunction={setStartTime} />
+            <FormInput inputId="createStart"  inputType="text" isRequired={false}pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="Timestamp where the clip begins:" beingChanged={startTime} changeFunction={setStartTime} />
             <br />
-            <FormInput inputId="createEnd" inputType="text" isRequired={false} pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="Timestamp where the clip ends:" beingChanged={endTime} changeFunction={setEndTime} />
+            <FormInput inputId="createEnd"  inputType="text" isRequired={false} pattern={"([0-9]{2}:)?[0-6][0-9]:[0-6][0-9]"} valDescriptor="Timestamp where the clip ends:" beingChanged={endTime} changeFunction={setEndTime} />
             <br />
-            <FormInput inputId="createName" inputType="text" isRequired={true} pattern=".*" valDescriptor="Podcast/Show name:" beingChanged={showName} changeFunction={setShowName} />
+            <FormInput inputId="createName"  inputType="text" isRequired={true} pattern=".*" valDescriptor="Podcast/Show name:" beingChanged={showName} changeFunction={setShowName} />
             <br />
 
             <PeopleCreatable id="createHosts" valDescriptor="Hosts: (include at least 1)" beingChanged={hosts} changeFunction={setHosts} clips={props.clips}/>
@@ -92,12 +93,12 @@ const ClipForm = (props) => {
             
             <TextAreaInput id="createNotes" valDescriptor="Clip description/Notes:" beingChanged={notes} changeFunction={setNotes} />
             <br />
+        </div>
             <button onClick={handleSubmit}>
                 <img src={createIcon} alt="Create icon" width="40%"/>
                 <br />
                 Submit
             </button>
-            
         </div>
     )
 
