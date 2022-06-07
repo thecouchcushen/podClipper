@@ -2,7 +2,7 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import clipService from './services/clips'
-import ClipForm from './components/ClipForm'
+import NewForm from './components/NewForm'
 import Clips from './components/Clips'
 import Logo from './PodClipperLogo.svg'
 
@@ -34,7 +34,7 @@ function App() {
       return (
       <>
         <h2>Add a Clip:</h2>
-        <ClipForm id="createForm" clips={clips} setClips={setClips} clip={null} />
+        <NewForm id="createForm" actionToTake='create' clips={clips} setClips={setClips} clip={null} />
       </>
       )
     } else {

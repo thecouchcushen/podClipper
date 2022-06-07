@@ -21,7 +21,7 @@ const PeopleCreatable = (props) => {
             label: person
         })
     })
-
+    const [selectedOption, setSelectedOption] = useState(null)
     // Loads the initial values of the form based on what is fed through props
     // (whether or not Hosts or Guests are being changed in this creatable-select component)
     useEffect(() => {
@@ -34,7 +34,7 @@ const PeopleCreatable = (props) => {
                         label: host
                     })
                 })
-                break;
+                break
             case "Guests":
                 props.beingChanged.map(guest => {
                     alreadySelected.push({
@@ -42,15 +42,15 @@ const PeopleCreatable = (props) => {
                         label: guest
                     })
                 })
-                break;
+                break
             default:
                 alreadySelected = []
         } 
     
         setSelectedOption(alreadySelected)
-    }, [])
+    }, [props.beingChanged, props.valDescriptor])
 
-    const [selectedOption, setSelectedOption] = useState(null)
+    
       
     const handleChange = (selectedOption) => {
         setSelectedOption( selectedOption )

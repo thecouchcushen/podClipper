@@ -3,7 +3,7 @@ import editIcon from '../edit.svg'
 import deleteIcon from '../delete.svg'
 import {useState} from 'react'
 import clipService from '../services/clips'
-import UpdateForm from './UpdateForm'
+import NewForm from './NewForm'
 
 const Clip = ({clip, setClips, clips}) => {
 
@@ -46,7 +46,7 @@ const Clip = ({clip, setClips, clips}) => {
 
     const handleFormDisplay = () => {
         if (dispUpdateForm) {
-            return (<UpdateForm clips={clips} setClips={setClips} clip={clip} changeFunctions={{setTitle, setLink, setDatePublished, setStartTime, setEndTime, setShowName, setHosts, setGuests, setNotes}} />)
+            return (<NewForm clips={clips} setClips={setClips} clip={clip} actionToTake='update' changeFunctions={{setTitle, setLink, setDatePublished, setStartTime, setEndTime, setShowName, setHosts, setGuests, setNotes}} />)
           } else {
             return (
             <>
