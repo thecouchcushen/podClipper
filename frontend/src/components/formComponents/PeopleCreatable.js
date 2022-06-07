@@ -20,6 +20,7 @@ const PeopleCreatable = (props) => {
             value: person,
             label: person
         })
+        return null
     })
     const [selectedOption, setSelectedOption] = useState(null)
     // Loads the initial values of the form based on what is fed through props
@@ -33,6 +34,7 @@ const PeopleCreatable = (props) => {
                         value: host,
                         label: host
                     })
+                    return null
                 })
                 break
             case "Guests":
@@ -41,6 +43,7 @@ const PeopleCreatable = (props) => {
                         value: guest,
                         label: guest
                     })
+                    return null
                 })
                 break
             default:

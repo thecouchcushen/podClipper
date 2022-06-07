@@ -1,6 +1,5 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import Select from 'react-select'
-
 
 const ShowSelect = (props) => {
 
@@ -25,14 +24,15 @@ const ShowSelect = (props) => {
             value: show,
             label: show
         })
+        return null
     })
 
-    const [selectedOption, setSelectedOption] = useState(null)
+    //const [selectedOption, setSelectedOption] = useState(null)
     
-    const handleChange = (selectedOption) => {
-        setSelectedOption( selectedOption )
-        console.log(`Person filter selected: ${selectedOption.value}`)
-        props.changeFunction( selectedOption.value )
+    const handleChange = (event) => {
+        //setSelectedOption( selectedOption )
+        console.log(`Person filter selected: ${event.value}`)
+        props.changeFunction( event.value )
     }
 
     return (
