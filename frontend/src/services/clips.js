@@ -27,10 +27,10 @@ const del = (id) => {
 
 const clipService = {
     baseUrl,
-    getAll: getAll,
-    create: create,
-    update: update,
-    del: del
+    getAll,
+    create,
+    update,
+    del
 }
 
 export default clipService
