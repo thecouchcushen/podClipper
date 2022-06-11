@@ -30,7 +30,7 @@
 .create-form-button {
   border: 0;
   border-radius: 5px;
-  background-color: #8c52ff76;
-  width: 200px;
-  height: 50px;
+  background-color: #8c52ff59;
+  min-width: 200px;
+  height: 75px;
 }

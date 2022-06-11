@@ -1,15 +1,25 @@
 .clipPanel {
     padding: 10px;
-    background-color: #9da7ad;
+    background-color: #CCD5AE;
     border-radius: 5px;
 }
 
 .clipPanel button {
     border: 0px;
     border-radius: 5px;
-    background-color: #8c52ff76;
+    background-color: #8c52ff59;
     margin: 0px 10px 0px 10px;
     padding: 5px;
     width: 75px;
+}
+
+.clipPanel a {
+    color: blue;
+    text-decoration: none
+}
+
+
+.clipPanel a:hover {
+    text-decoration: underline
 }
 

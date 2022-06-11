@@ -71,7 +71,11 @@ const Clip = ({ clip, setClips, clips }) => {
       <>
         <button onClick={deleteFunction}>
           Delete Clip
-          <img src={deleteIcon} alt="Delete" width="80%"></img>
+          <img 
+            src={deleteIcon} 
+            alt="Delete" 
+            width="80%">  
+          </img>
         </button>
         <p className="epTitle">
           <strong>{title}</strong>
@@ -125,7 +129,11 @@ const Clip = ({ clip, setClips, clips }) => {
     <div className="clipPanel">
       <button onClick={handleEditDisplaySubmit}>
         {buttonContents}
-        <img src={editIcon} alt="Edit" width="80%"></img>
+        <img 
+          src={editIcon} 
+          alt="Edit" 
+          width="80%">
+        </img>
       </button>
 
       {handleFormDisplay()}

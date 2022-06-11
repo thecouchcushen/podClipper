@@ -23,10 +23,23 @@ const Clips = ({clips, setClips}) => {
     return (
         <div>
             <div className='filter-wrapper'>
-                <PeopleSelect clips={clips} valDescriptor="Filter by People: (guests or hosts)" beingChanged={personFilter} changeFunction={setPersonFilter} />
-                <ShowSelect clips={clips} valDescriptor="Filter by Show:" beingChanged={showFilter} changeFunction={setShowFilter} />
+                <PeopleSelect 
+                    clips={clips} 
+                    valDescriptor="Filter by People: (guests or hosts)" 
+                    beingChanged={personFilter} 
+                    changeFunction={setPersonFilter} />
+
+                <ShowSelect 
+                    clips={clips} 
+                    valDescriptor="Filter by Show:" 
+                    beingChanged={showFilter} 
+                    changeFunction={setShowFilter} />
+
                 <div className='individual-filter-container'>
-                    <FormInput valDescriptor="Filter by description/notes: " beingChanged={noteFilter} changeFunction={setNoteFilter} />
+                    <FormInput 
+                        valDescriptor="Filter by description/notes: " 
+                        beingChanged={noteFilter} 
+                        changeFunction={setNoteFilter} />
                 </div>
             </div>
             <div className='clip-wrapper'>
