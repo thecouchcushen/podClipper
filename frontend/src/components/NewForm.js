@@ -1,5 +1,6 @@
 import './NewForm.css'
 import { useEffect, useState } from 'react'
+import {useMount} from 'react-use'
 import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'
 import PeopleCreatable from './formComponents/PeopleCreatable'
@@ -21,11 +22,7 @@ const NewForm = (props) => {
   const [guests, setGuests] = useState([])
   const [notes, setNotes] = useState('')
 
-  /* so this is not necessarily a good practice, because every single time you render the component 
-    this will run. If you are trying to only run this when the component mounts, I would recommend
-    using 'useMount' from the 'react-use' library
-   */
-  useEffect(() => {
+  useMount(() => {
     if (props.actionToTake === 'update') {
       setTitle(clip.title)
       setLink(clip.link)
@@ -39,7 +36,7 @@ const NewForm = (props) => {
       setGuests(clip.guests)
       setNotes(clip.notes)
     }
-  }, [])
+  })
 
   /* this is an IDEAL scenario in which you either use a reducer or redux in order to manage state. 
     If you have complex state changes that depend on one another, you won't want to use setState in 
