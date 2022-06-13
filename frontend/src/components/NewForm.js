@@ -1,5 +1,5 @@
 import './NewForm.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {useMount} from 'react-use'
 import FormInput from './formComponents/FormInput'
 import TextAreaInput from './formComponents/TextAreaInput'

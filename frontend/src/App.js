@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
+import {useMount} from 'react-use'
 import clipService from './services/clips'
 import NewForm from './components/NewForm'
 import Clips from './components/Clips'
@@ -14,10 +15,10 @@ function App() {
   const [buttonContents, setButtonContents] = useState("Add Clips")
   
   //Requests the clips upon first load of the website
-  useEffect(() => {
+  useMount(() => {
     clipService.getAll()
                .then(response => setClips(response))
-  }, [])
+  })
 
   const handleSubmit = (event) => {
     if (!dispCreateForm) {
